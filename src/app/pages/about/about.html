@@ -1,0 +1,111 @@
+<!-- About Hero -->
+<section class="about-hero">
+    <div class="bg-orb orb-purple" style="width: 500px; height: 500px; top: -150px; right: -100px;"></div>
+    <div class="container">
+        <div class="about-hero-content">
+            <div class="section-tag">About Us</div>
+            <h1 class="section-title">We're the Team Behind <span>Your Growth</span></h1>
+            <p class="section-subtitle">Founded in 2016, My Digital Marketers has grown from a small startup to a
+                full-service digital marketing agency trusted by 500+ businesses worldwide.</p>
+        </div>
+    </div>
+</section>
+
+<!-- Story Section -->
+<section class="section story-section">
+    <div class="container">
+        <div class="story-inner">
+            <div class="story-left">
+                <div class="section-tag">Our Story</div>
+                <h2 class="section-title">Built on <span>Results & Trust</span></h2>
+                <p>We started with a simple belief: marketing should be measurable, transparent, and genuinely
+                    effective. Too many agencies overpromise and underdeliver — we set out to change that.</p>
+                <p style="margin-top: 1rem;">Today, we've helped 500+ businesses generate over $47M in revenue through
+                    data-driven digital marketing strategies that actually work.</p>
+                <div class="story-stats">
+                    <div class="story-stat">
+                        <span class="s-val">2016</span>
+                        <span class="s-lbl">Founded</span>
+                    </div>
+                    <div class="story-stat">
+                        <span class="s-val">500+</span>
+                        <span class="s-lbl">Clients</span>
+                    </div>
+                    <div class="story-stat">
+                        <span class="s-val">$47M+</span>
+                        <span class="s-lbl">Revenue</span>
+                    </div>
+                </div>
+            </div>
+            <div class="story-right">
+                <div class="story-visual">
+                    <div class="story-orb"></div>
+                    <div class="story-badge">
+                        <span class="badge-icon">🏆</span>
+                        <span class="badge-text">Top Marketing Agency 2024</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Values -->
+<section class="section values-section">
+    <div class="container">
+        <div class="section-header">
+            <div class="section-tag">Our Values</div>
+            <h2 class="section-title">What Drives <span>Everything We Do</span></h2>
+        </div>
+        <div class="values-grid grid-4">
+            @for (value of values; track value.title) {
+            <div class="value-card card">
+                <div class="value-icon">{{ value.icon }}</div>
+                <h3>{{ value.title }}</h3>
+                <p>{{ value.desc }}</p>
+            </div>
+            }
+        </div>
+    </div>
+</section>
+
+<!-- Team -->
+<section class="section team-section">
+    <div class="container">
+        <div class="section-header">
+            <div class="section-tag">Our Team</div>
+            <h2 class="section-title">Meet the <span>Experts</span></h2>
+            <p class="section-subtitle">A passionate team of marketers, designers, and strategists dedicated to your
+                success.</p>
+        </div>
+        <div class="team-grid grid-4">
+            @for (member of team; track member.name) {
+            <div class="team-card card">
+                <div class="team-avatar">{{ member.avatar }}</div>
+                <h4>{{ member.name }}</h4>
+                <div class="team-role">{{ member.role }}</div>
+                <p>{{ member.bio }}</p>
+            </div>
+            }
+        </div>
+    </div>
+</section>
+
+<!-- CTA -->
+<section class="section">
+    <div class="container">
+        <div class="cta-inner">
+            <div class="cta-glow"></div>
+            <div class="section-tag">Work With Us</div>
+            <h2 class="section-title">Ready to <span>Get Started?</span></h2>
+            <p class="section-subtitle">Join 500+ businesses that trust My Digital Marketers to grow their digital
+                presence.</p>
+            <a routerLink="/contact" class="btn btn-primary" style="margin-top: 2rem;">
+                Start Your Journey
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M5 12h14M12 5l7 7-7 7" />
+                </svg>
+            </a>
+        </div>
+    </div>
+</section>

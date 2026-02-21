@@ -1,0 +1,70 @@
+<footer class="footer">
+    <div class="footer-glow"></div>
+    <div class="container">
+        <div class="footer-top">
+            <!-- Brand -->
+            <div class="footer-brand">
+                <a routerLink="/" class="footer-logo">
+                    <img src="assets/logo.png" alt="My Digital Marketers" class="logo-img">
+                    <span>My Digital Marketers</span>
+                </a>
+                <p class="footer-tagline">We transform your digital presence into a powerful growth engine.
+                    Results-driven marketing for ambitious brands.</p>
+                <div class="footer-socials">
+                    @for (social of socials; track social.name) {
+                    <a [href]="social.url" class="social-btn" [attr.aria-label]="social.name">
+                        {{ social.icon }}
+                    </a>
+                    }
+                </div>
+            </div>
+
+            <!-- Quick Links -->
+            <div class="footer-col">
+                <h4 class="footer-col-title">Quick Links</h4>
+                <ul class="footer-links">
+                    @for (link of links; track link.path) {
+                    <li><a [routerLink]="link.path" class="footer-link">{{ link.label }}</a></li>
+                    }
+                </ul>
+            </div>
+
+            <!-- Services -->
+            <div class="footer-col">
+                <h4 class="footer-col-title">Services</h4>
+                <ul class="footer-links">
+                    @for (service of services; track service) {
+                    <li><a routerLink="/services" class="footer-link">{{ service }}</a></li>
+                    }
+                </ul>
+            </div>
+
+            <!-- Contact -->
+            <div class="footer-col">
+                <h4 class="footer-col-title">Get In Touch</h4>
+                <div class="footer-contact">
+                    <div class="contact-item">
+                        <span class="contact-icon">✉</span>
+                        <span>hello&#64;mydigitalmarketers.com</span>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-icon">📞</span>
+                        <span>+1 (555) 123-4567</span>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-icon">📍</span>
+                        <span>New York, NY 10001</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p class="copyright">© {{ currentYear }} My Digital Marketers. All rights reserved.</p>
+            <div class="footer-bottom-links">
+                <a href="#" class="footer-link">Privacy Policy</a>
+                <a href="#" class="footer-link">Terms of Service</a>
+            </div>
+        </div>
+    </div>
+</footer>

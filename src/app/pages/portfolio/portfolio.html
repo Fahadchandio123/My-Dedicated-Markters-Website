@@ -1,0 +1,65 @@
+<!-- Portfolio Hero -->
+<section class="portfolio-hero">
+    <div class="bg-orb orb-purple" style="width: 500px; height: 500px; top: -150px; right: -100px;"></div>
+    <div class="container">
+        <div class="portfolio-hero-content">
+            <div class="section-tag">Our Work</div>
+            <h1 class="section-title">Results That <span>Speak for Themselves</span></h1>
+            <p class="section-subtitle">Browse our portfolio of successful campaigns and projects across industries.
+                Real clients, real results.</p>
+        </div>
+    </div>
+</section>
+
+<!-- Filter + Grid -->
+<section class="section">
+    <div class="container">
+        <!-- Filter Tabs -->
+        <div class="filter-tabs">
+            @for (filter of filters; track filter) {
+            <button class="filter-tab" [class.active]="activeFilter === filter" (click)="setFilter(filter)">
+                {{ filter }}
+            </button>
+            }
+        </div>
+
+        <!-- Projects Grid -->
+        <div class="projects-grid">
+            @for (project of filteredProjects; track project.title) {
+            <div class="project-card card">
+                <div class="project-visual"
+                    [style.background]="'linear-gradient(135deg, ' + project.color + '33, ' + project.color + '11)'">
+                    <div class="project-tag">{{ project.tag }}</div>
+                    <div class="project-icon">📊</div>
+                </div>
+                <div class="project-info">
+                    <h3>{{ project.title }}</h3>
+                    <div class="project-result">
+                        <span class="result-icon">🎯</span>
+                        <span>{{ project.result }}</span>
+                    </div>
+                </div>
+            </div>
+            }
+        </div>
+    </div>
+</section>
+
+<!-- CTA -->
+<section class="section">
+    <div class="container">
+        <div class="cta-inner">
+            <div class="cta-glow"></div>
+            <div class="section-tag">Your Turn</div>
+            <h2 class="section-title">Ready to Be Our <span>Next Success Story?</span></h2>
+            <p class="section-subtitle">Join 500+ businesses that have transformed their digital presence with My
+                Digital Marketers.</p>
+            <a routerLink="/contact" class="btn btn-primary" style="margin-top: 2rem;">
+                Start Your Project
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M5 12h14M12 5l7 7-7 7" />
+                </svg>
+            </a>
+        </div>
+    </div>
+</section>

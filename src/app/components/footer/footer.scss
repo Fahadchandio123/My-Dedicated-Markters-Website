@@ -1,0 +1,170 @@
+.footer {
+    position: relative;
+    background: var(--color-bg-2);
+    border-top: 1px solid var(--color-border);
+    padding-top: 5rem;
+    overflow: hidden;
+
+    .footer-glow {
+        position: absolute;
+        top: -100px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 600px;
+        height: 300px;
+        background: radial-gradient(ellipse, rgba(124, 58, 237, 0.15), transparent 70%);
+        pointer-events: none;
+    }
+
+    .footer-top {
+        display: grid;
+        grid-template-columns: 2fr 1fr 1fr 1.5fr;
+        gap: 3rem;
+        padding-bottom: 3rem;
+        border-bottom: 1px solid var(--color-border);
+
+        @media (max-width: 1024px) {
+            grid-template-columns: 1fr 1fr;
+        }
+
+        @media (max-width: 640px) {
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+    }
+
+    .footer-brand {
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1.25rem;
+
+            .logo-img {
+                height: 36px;
+                width: auto;
+            }
+
+            span {
+                font-family: var(--font-primary);
+                font-weight: 700;
+                font-size: 1rem;
+                color: white;
+            }
+        }
+
+        .footer-tagline {
+            font-size: 0.9rem;
+            color: var(--color-gray-500);
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+            max-width: 300px;
+        }
+    }
+
+    .footer-socials {
+        display: flex;
+        gap: 0.75rem;
+
+        .social-btn {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(124, 58, 237, 0.1);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-sm);
+            color: var(--color-gray-400);
+            font-size: 0.75rem;
+            font-weight: 700;
+            transition: var(--transition);
+
+            &:hover {
+                background: rgba(124, 58, 237, 0.25);
+                border-color: var(--color-purple-light);
+                color: white;
+                transform: translateY(-2px);
+            }
+        }
+    }
+
+    .footer-col-title {
+        font-family: var(--font-primary);
+        font-size: 0.9rem;
+        font-weight: 600;
+        color: white;
+        margin-bottom: 1.25rem;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+    }
+
+    .footer-links {
+        display: flex;
+        flex-direction: column;
+        gap: 0.625rem;
+
+        .footer-link {
+            font-size: 0.875rem;
+            color: var(--color-gray-500);
+            transition: var(--transition);
+
+            &:hover {
+                color: var(--color-purple-pale);
+                padding-left: 4px;
+            }
+        }
+    }
+
+    .footer-contact {
+        display: flex;
+        flex-direction: column;
+        gap: 0.875rem;
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            font-size: 0.875rem;
+            color: var(--color-gray-500);
+
+            .contact-icon {
+                font-size: 1rem;
+                flex-shrink: 0;
+            }
+        }
+    }
+
+    .footer-bottom {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 1.5rem 0;
+        gap: 1rem;
+
+        @media (max-width: 640px) {
+            flex-direction: column;
+            text-align: center;
+        }
+
+        .copyright {
+            font-size: 0.85rem;
+            color: var(--color-gray-500);
+        }
+
+        .footer-bottom-links {
+            display: flex;
+            gap: 1.5rem;
+
+            .footer-link {
+                font-size: 0.85rem;
+                color: var(--color-gray-500);
+                transition: var(--transition);
+
+                &:hover {
+                    color: var(--color-purple-pale);
+                }
+            }
+        }
+    }
+}

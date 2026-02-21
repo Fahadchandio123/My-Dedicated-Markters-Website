@@ -1,0 +1,98 @@
+<!-- Services Hero -->
+<section class="services-hero">
+    <div class="bg-orb orb-purple" style="width: 500px; height: 500px; top: -150px; left: -100px;"></div>
+    <div class="container">
+        <div class="services-hero-content">
+            <div class="section-tag">Our Services</div>
+            <h1 class="section-title">Everything You Need to <span>Grow Online</span></h1>
+            <p class="section-subtitle">From SEO to web design, we offer a complete suite of digital marketing services
+                designed to drive real, measurable results for your business.</p>
+        </div>
+    </div>
+</section>
+
+<!-- Services Grid -->
+<section class="section">
+    <div class="container">
+        <div class="services-detail-grid">
+            @for (service of services; track service.title) {
+            <div class="service-detail-card card">
+                <div class="sdc-header">
+                    <div class="sdc-icon">{{ service.icon }}</div>
+                    <div class="sdc-price">{{ service.price }}</div>
+                </div>
+                <h3>{{ service.title }}</h3>
+                <p>{{ service.desc }}</p>
+                <ul class="sdc-features">
+                    @for (feature of service.features; track feature) {
+                    <li>
+                        <span class="feature-dot">✓</span>
+                        {{ feature }}
+                    </li>
+                    }
+                </ul>
+                <a routerLink="/contact" class="btn btn-primary" style="margin-top: auto;">
+                    Get Started
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7" />
+                    </svg>
+                </a>
+            </div>
+            }
+        </div>
+    </div>
+</section>
+
+<!-- Process Section -->
+<section class="section process-section">
+    <div class="container">
+        <div class="section-header">
+            <div class="section-tag">How We Work</div>
+            <h2 class="section-title">Our Simple <span>4-Step Process</span></h2>
+        </div>
+        <div class="process-steps">
+            <div class="process-step">
+                <div class="step-num">01</div>
+                <h4>Discovery Call</h4>
+                <p>We learn about your business, goals, and challenges in a free strategy session.</p>
+            </div>
+            <div class="process-connector"></div>
+            <div class="process-step">
+                <div class="step-num">02</div>
+                <h4>Strategy Build</h4>
+                <p>Our team crafts a custom marketing strategy tailored to your specific goals.</p>
+            </div>
+            <div class="process-connector"></div>
+            <div class="process-step">
+                <div class="step-num">03</div>
+                <h4>Launch & Execute</h4>
+                <p>We implement the strategy with precision, tracking every metric from day one.</p>
+            </div>
+            <div class="process-connector"></div>
+            <div class="process-step">
+                <div class="step-num">04</div>
+                <h4>Optimize & Scale</h4>
+                <p>Continuous optimization to maximize results and scale what's working.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA -->
+<section class="section">
+    <div class="container">
+        <div class="cta-inner">
+            <div class="cta-glow"></div>
+            <div class="section-tag">Ready?</div>
+            <h2 class="section-title">Let's Build Your <span>Growth Engine</span></h2>
+            <p class="section-subtitle">Schedule a free strategy call and discover which services are right for your
+                business.</p>
+            <a routerLink="/contact" class="btn btn-primary" style="margin-top: 2rem;">
+                Book Free Strategy Call
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M5 12h14M12 5l7 7-7 7" />
+                </svg>
+            </a>
+        </div>
+    </div>
+</section>
