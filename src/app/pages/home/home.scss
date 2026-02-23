@@ -97,10 +97,11 @@
 }
 
 // Bottom-left label — "WE SCALE VISIONARY COMPANIES"
+// Bottom-left label — "WE SCALE VISIONARY COMPANIES"
 .hero-top-left {
     position: absolute;
-    top: 450px; // Aligned with the bottom of "STORY"
-    left: 80px;
+    bottom: 120px; // Sitting on top of the curve
+    left: 72px;
     font-family: 'Unbounded', sans-serif;
     font-weight: 300;
     font-size: 13px;
@@ -108,7 +109,7 @@
     text-transform: uppercase;
     color: #FFFFFF;
     width: 200px;
-    z-index: 5;
+    z-index: 15; // Above the curve
     opacity: 0.7;
 }
 
@@ -132,9 +133,9 @@
 // Main headline
 .hero-headline {
     position: absolute;
-    top: 220px;
-    left: 80px;
-    z-index: 1; // Behind the astronaut
+    top: 25%;
+    left: 5%;
+    z-index: 1; // Behind everything
     pointer-events: none;
 
     .hero-title-top {
@@ -151,11 +152,11 @@
     .hero-title-main {
         font-family: 'Conthrax', sans-serif;
         font-weight: 600;
-        font-size: clamp(100px, 18vw, 280px);
+        font-size: clamp(100px, 20vw, 350px);
         line-height: 0.8;
         text-transform: uppercase;
         color: #FFFFFF;
-        margin: -5px 0 0 -8px;
+        margin: -5px 0 0 -10px;
         letter-spacing: -0.05em;
     }
 }
@@ -164,13 +165,13 @@
 .hero-astronaut-main {
     position: absolute;
     top: 50%;
-    left: 45%;
+    left: 42%;
     transform: translateY(-50%);
-    z-index: 3; // In front of "STORY"
+    z-index: 5; // In front of "STORY"
     pointer-events: none;
 
     .astronaut-img-main {
-        width: clamp(450px, 55vw, 850px);
+        width: clamp(450px, 58vw, 900px);
         height: auto;
         object-fit: contain;
     }
@@ -214,18 +215,18 @@
 // DOMINATE THE NOISE (Ghost Text)
 .hero-dominate {
     position: absolute;
-    bottom: 80px;
-    right: 72px;
-    z-index: 2;
+    bottom: 60px;
+    right: 5%;
+    z-index: 2; // Behind the floating astronaut but decoration
     text-align: right;
     pointer-events: none;
 
     h2 {
         font-family: 'Unbounded', sans-serif;
         font-weight: 900;
-        font-size: clamp(60px, 8vw, 130px);
+        font-size: clamp(60px, 9vw, 150px);
         color: transparent;
-        -webkit-text-stroke: 1px rgba(255, 255, 255, 0.2);
+        -webkit-text-stroke: 1.5px rgba(255, 255, 255, 0.2);
         text-transform: uppercase;
         margin: 0;
         line-height: 0.8;
