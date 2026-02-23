@@ -91,10 +91,14 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    padding: 10px;
+    padding: 10px 24px;
     gap: 5px;
     text-decoration: none;
     white-space: nowrap;
+    background: linear-gradient(180deg, #5a1a9e 0%, #421181 100%);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 4px;
+    transition: all 0.3s ease;
 
     span {
         font-family: 'Unbounded', sans-serif;
@@ -102,7 +106,6 @@
         font-weight: 400;
         font-size: 14px;
         line-height: 17px;
-        text-decoration-line: underline;
         color: #FFFFFF;
     }
 
@@ -110,8 +113,9 @@
         flex-shrink: 0;
     }
 
-    &:hover span {
-        opacity: 0.7;
+    &:hover {
+        box-shadow: 0 0 20px rgba(138, 56, 245, 0.5);
+        border-color: rgba(255, 255, 255, 0.5);
     }
 }
 
