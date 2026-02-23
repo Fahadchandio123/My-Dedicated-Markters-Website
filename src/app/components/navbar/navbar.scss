@@ -48,27 +48,22 @@
     }
 }
 
-/* Right side: links + CTA */
-.nav-right {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 50px;
-}
-
 /* Nav links */
 .nav-links {
     display: flex;
     flex-direction: row;
     align-items: center;
-    gap: 50px;
+    gap: clamp(20px, 3vw, 50px);
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
 
     a {
         font-family: 'Unbounded', sans-serif;
         font-style: normal;
         font-weight: 300;
         font-size: 14px;
-        line-height: 17px;
+        line-height: 1.2;
         color: #FFFFFF;
         text-decoration: none;
         transition: opacity 0.2s ease;
@@ -182,11 +177,7 @@
 /* Responsive */
 @media (max-width: 1024px) {
     .nav-links {
-        gap: 30px;
-    }
-
-    .nav-right {
-        gap: 30px;
+        display: none;
     }
 }
 

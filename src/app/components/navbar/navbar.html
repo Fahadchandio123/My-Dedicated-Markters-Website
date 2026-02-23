@@ -6,27 +6,24 @@
             <img src="assets/logo.png" alt="My Digital Marketers" class="logo-img">
         </a>
 
-        <!-- Nav Links + CTA -->
-        <div class="nav-right">
-            <!-- Links -->
-            <div class="nav-links">
-                <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">Home</a>
-                <a routerLink="/about" routerLinkActive="active">About</a>
-                <a routerLink="/services" routerLinkActive="active">Services</a>
-                <a routerLink="/portfolio" routerLinkActive="active">Our Team</a>
-                <a routerLink="/contact" routerLinkActive="active">Contact</a>
-                <a routerLink="/portfolio" routerLinkActive="active">Blog</a>
-            </div>
-
-            <!-- Get Started CTA -->
-            <a routerLink="/contact" class="nav-cta">
-                <span>Get Started</span>
-                <svg width="10" height="12" viewBox="0 0 10 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M1 1L9 6L1 11" stroke="white" stroke-width="1.5" stroke-linecap="round"
-                        stroke-linejoin="round" />
-                </svg>
-            </a>
+        <!-- Nav Links -->
+        <div class="nav-links">
+            <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">Home</a>
+            <a routerLink="/about" routerLinkActive="active">About</a>
+            <a routerLink="/services" routerLinkActive="active">Services</a>
+            <a routerLink="/portfolio" routerLinkActive="active">Our Team</a>
+            <a routerLink="/contact" routerLinkActive="active">Contact</a>
+            <a routerLink="/portfolio" routerLinkActive="active">Blog</a>
         </div>
+
+        <!-- Get Started CTA -->
+        <a routerLink="/contact" class="nav-cta">
+            <span>Get Started</span>
+            <svg width="10" height="12" viewBox="0 0 10 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M1 1L9 6L1 11" stroke="white" stroke-width="1.5" stroke-linecap="round"
+                    stroke-linejoin="round" />
+            </svg>
+        </a>
 
         <!-- Mobile hamburger -->
         <button class="hamburger" (click)="toggleMenu()" [class.open]="isMenuOpen">
