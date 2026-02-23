@@ -99,17 +99,17 @@
 // Bottom-left label — "WE SCALE VISIONARY COMPANIES"
 .hero-top-left {
     position: absolute;
-    bottom: 150px; // Moved up to be safe from curve
+    top: 450px; // Aligned with the bottom of "STORY"
     left: 80px;
     font-family: 'Unbounded', sans-serif;
     font-weight: 300;
-    font-size: 14px;
-    line-height: 1.2;
+    font-size: 13px;
+    line-height: 1.4;
     text-transform: uppercase;
     color: #FFFFFF;
-    width: 250px;
-    z-index: 10; // Ensure it stays on top
-    opacity: 0.8;
+    width: 200px;
+    z-index: 5;
+    opacity: 0.7;
 }
 
 // Small top-right text — "From positioning to ads..."
@@ -132,9 +132,9 @@
 // Main headline
 .hero-headline {
     position: absolute;
-    top: 32%; // Balanced vertically
-    left: 80px; // Safe padding
-    z-index: 1;
+    top: 220px;
+    left: 80px;
+    z-index: 1; // Behind the astronaut
     pointer-events: none;
 
     .hero-title-top {
@@ -151,12 +151,12 @@
     .hero-title-main {
         font-family: 'Conthrax', sans-serif;
         font-weight: 600;
-        font-size: clamp(80px, 15vw, 240px);
+        font-size: clamp(100px, 18vw, 280px);
         line-height: 0.8;
         text-transform: uppercase;
         color: #FFFFFF;
-        margin: -5px 0 0 -5px;
-        letter-spacing: -0.04em;
+        margin: -5px 0 0 -8px;
+        letter-spacing: -0.05em;
     }
 }
 
@@ -164,32 +164,30 @@
 .hero-astronaut-main {
     position: absolute;
     top: 50%;
-    left: 48%; // More centered
-    transform: translate(0, -50%);
-    z-index: 3;
+    left: 45%;
+    transform: translateY(-50%);
+    z-index: 3; // In front of "STORY"
     pointer-events: none;
 
     .astronaut-img-main {
-        width: clamp(400px, 52vw, 750px);
+        width: clamp(450px, 55vw, 850px);
         height: auto;
         object-fit: contain;
-        filter: drop-shadow(0 0 80px rgba(150, 0, 255, 0.3));
     }
 }
 
 // Astronaut 2 - floating right
 .hero-astronaut-secondary {
     position: absolute;
-    top: 35%;
+    top: 45%;
     right: 5%;
-    z-index: 4; // Floating in front
+    z-index: 4;
     pointer-events: none;
 
     .astronaut-img-secondary {
-        width: clamp(150px, 18vw, 320px);
+        width: clamp(200px, 22vw, 380px);
         height: auto;
         object-fit: contain;
-        filter: drop-shadow(0 0 50px rgba(150, 0, 255, 0.5)) hue-rotate(20deg);
     }
 }
 
@@ -216,22 +214,21 @@
 // DOMINATE THE NOISE (Ghost Text)
 .hero-dominate {
     position: absolute;
-    bottom: 180px; // Above the curve
-    right: 80px;
-    z-index: 0;
+    bottom: 80px;
+    right: 72px;
+    z-index: 2;
     text-align: right;
     pointer-events: none;
-    opacity: 0.6;
 
     h2 {
         font-family: 'Unbounded', sans-serif;
         font-weight: 900;
-        font-size: clamp(40px, 6vw, 100px);
+        font-size: clamp(60px, 8vw, 130px);
         color: transparent;
-        -webkit-text-stroke: 1px rgba(255, 255, 255, 0.3);
+        -webkit-text-stroke: 1px rgba(255, 255, 255, 0.2);
         text-transform: uppercase;
         margin: 0;
-        line-height: 0.85;
+        line-height: 0.8;
         letter-spacing: -0.02em;
     }
 }
@@ -242,10 +239,11 @@
     bottom: 0;
     left: 0;
     width: 100%;
-    height: 120px;
-    z-index: 5;
+    height: 180px;
+    z-index: 10;
     background: #000000;
-    clip-path: ellipse(80% 100% at 50% 100%);
+    clip-path: ellipse(100% 100% at 50% 100%);
+    pointer-events: none;
 }
 
 // ===== INTRO SECTION =====
