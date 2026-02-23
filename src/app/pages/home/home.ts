@@ -1,59 +1,545 @@
-import { Component, AfterViewInit } from '@angular/core';
-import { RouterLink } from '@angular/router';
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
+// ===== GLOBAL & TYPOGRAPHY =====
+@import url('https://fonts.googleapis.com/css2?family=Unbounded:wght@300;400;700;900&family=Orbitron:wght@400;600;700;900&display=swap');
 
-gsap.registerPlugin(ScrollTrigger);
+// Conthrax → Orbitron fallback (same geometric sci-fi style)
+// In your Angular project, place Conthrax in assets/fonts/ and add @font-face
+// For now Orbitron is used as the display font throughout
 
-@Component({
-  selector: 'app-home',
-  standalone: true,
-  imports: [RouterLink],
-  templateUrl: './home.html',
-  styleUrl: './home.scss'
-})
-export class Home implements AfterViewInit {
+:host {
+  display: block;
+  background: #000;
+  color: #fff;
+  overflow - x: hidden;
+}
 
-  ngAfterViewInit(): void {
-    // Hero animations
-    gsap.fromTo('.hero-title-top', { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.9, delay: 0.2, ease: 'power3.out' });
-    gsap.fromTo('.hero-title-main', { opacity: 0, y: 60 }, { opacity: 1, y: 0, duration: 1, delay: 0.4, ease: 'power3.out' });
-    gsap.fromTo('.hero-astronaut-main', { opacity: 0, scale: 0.85 }, { opacity: 1, scale: 1, duration: 1.2, delay: 0.3, ease: 'power3.out' });
-    gsap.fromTo('.hero-astronaut-secondary', { opacity: 0, x: 40 }, { opacity: 1, x: 0, duration: 1, delay: 0.8, ease: 'power3.out' });
-    gsap.fromTo('.hero-top-left', { opacity: 0 }, { opacity: 1, duration: 0.8, delay: 1 });
-    gsap.fromTo('.hero-top-right', { opacity: 0 }, { opacity: 1, duration: 0.8, delay: 1.1 });
-    gsap.fromTo('.hero-dominate h2', { opacity: 0, x: 40 }, { opacity: 1, x: 0, duration: 0.8, delay: 1.2, stagger: 0.15, ease: 'power3.out' });
+// ===== HERO SECTION =====
+.hero {
+  position: relative;
+  min - height: 100vh;
+  background: #000000;
+  overflow: hidden;
+  display: flex;
+  flex - direction: column;
 
-    // Intro section
-    gsap.fromTo('.intro-text', { opacity: 0, y: 30 }, {
-      opacity: 1, y: 0, duration: 0.8, ease: 'power2.out',
-      scrollTrigger: { trigger: '.intro-section', start: 'top 80%' }
-    });
+    // ── Background glows ──
+    .hero - bg - glow {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100 %; height: 100 %;
+    pointer - events: none;
+    overflow: hidden;
+    z - index: 0;
 
-    // Who section
-    gsap.fromTo('.who-title', { opacity: 0, y: 40 }, {
-      opacity: 1, y: 0, duration: 0.8, ease: 'power3.out',
-      scrollTrigger: { trigger: '.who-section', start: 'top 70%' }
-    });
-    gsap.fromTo('.who-item', { opacity: 0, x: -30 }, {
-      opacity: 1, x: 0, duration: 0.6, stagger: 0.15, ease: 'power2.out',
-      scrollTrigger: { trigger: '.who-list', start: 'top 75%' }
-    });
-    gsap.fromTo('.planet-orb', { opacity: 0, scale: 0.7 }, {
-      opacity: 1, scale: 1, duration: 1.2, ease: 'power3.out',
-      scrollTrigger: { trigger: '.who-section', start: 'top 70%' }
-    });
+        &::before {
+      content: '';
+      position: absolute;
+      width: 800px; height: 600px;
+      left: -150px; top: -150px;
+      background: radial - gradient(circle, rgba(150, 0, 255, 0.25) 0 %, transparent 70 %);
+      filter: blur(100px);
+      border - radius: 50 %;
+    }
 
-    // Statement
-    gsap.fromTo('.statement-title', { opacity: 0, y: 40 }, {
-      opacity: 1, y: 0, duration: 0.9, ease: 'power3.out',
-      scrollTrigger: { trigger: '.statement-section', start: 'top 75%' }
-    });
-
-    // Stats
-    gsap.fromTo('.stat-item', { opacity: 0, y: 20 }, {
-      opacity: 1, y: 0, duration: 0.6, stagger: 0.1, ease: 'power2.out',
-      scrollTrigger: { trigger: '.stats-section', start: 'top 80%' }
-    });
+        &::after {
+      content: '';
+      position: absolute;
+      width: 700px; height: 500px;
+      right: -100px; top: 20 %;
+      background: radial - gradient(circle, rgba(150, 0, 255, 0.2) 0 %, transparent 70 %);
+      filter: blur(120px);
+      border - radius: 50 %;
+    }
   }
+
+    // ── Dark oval bottom fill + purple blur ──
+    .hero - bg - bottom {
+    position: absolute;
+    pointer - events: none;
+    bottom: 0; left: 50 %;
+    transform: translateX(-50 %);
+    width: 130 %; height: 663px;
+    background: #000;
+    border - radius: 50 % 50 % 0 0 / 100 % 100 % 0 0;
+    z - index: 0;
+
+        &::after {
+      content: '';
+      position: absolute;
+      top: -100px; left: 50 %;
+      transform: translateX(-50 %);
+      width: 86.6 %; height: 537px;
+      background: #231037;
+      filter: blur(100px);
+      border - radius: 50 %;
+    }
+  }
+}
+
+// ── Inner container ──
+.hero - inner {
+  position: relative;
+  min - height: 100vh;
+  padding: 100px 72px 140px;
+  z - index: 2;
+}
+
+// ── Arrow swoosh (13.png) ──
+.hero - decor - 13 {
+  position: absolute;
+  top: 18 %; left: 8 %;
+  width: 55 %; height: auto;
+  z - index: 1;
+  pointer - events: none;
+  opacity: 0.65;
+
+    img {
+    width: 100 %; height: auto;
+    object - fit: contain;
+    filter: blur(1px) brightness(1.1);
+  }
+}
+
+// ── Top-right small text ──
+.hero - top - right {
+  position: absolute;
+  top: 120px; right: 80px;
+  font - family: 'Unbounded', sans - serif;
+  font - weight: 300;
+  font - size: 12px;
+  line - height: 1.6;
+  text - transform: uppercase;
+  text - align: right;
+  color: #fff;
+  width: 260px;
+  z - index: 10;
+  opacity: 0.75;
+}
+
+// ── Main headline block ──
+.hero - headline {
+  position: absolute;
+  // Vertically placed so "STORY" sits behind astronaut center-left
+  top: 22 %; left: 4 %;
+  z - index: 3;   // in front of arrow, behind astronaut (astronaut is z-index 5)
+  pointer - events: none;
+}
+
+.hero - title - top {
+  font - family: 'Orbitron', 'Conthrax', sans - serif;
+  font - weight: 700;
+  font - size: clamp(22px, 3.2vw, 50px);
+  line - height: 1;
+  text - transform: uppercase;
+  color: #fff;
+  margin: 0;
+  letter - spacing: 0.05em;
+}
+
+.hero - title - main {
+  font - family: 'Orbitron', 'Conthrax', sans - serif;
+  font - weight: 900;
+  // CRITICAL FIX: use viewport-relative sizing that stays within left ~60%
+  // The astronaut occupies the right half, so STORY must not overflow into it
+  font - size: clamp(88px, 15vw, 240px);
+  line - height: 0.82;
+  text - transform: uppercase;
+  color: #fff;
+  margin: -4px 0 0 - 6px;
+  letter - spacing: -0.03em;
+  // Max width keeps text from colliding with astronaut
+  max - width: 62vw;
+  overflow: hidden;
+}
+
+// ── Astronaut MAIN — standing, positioned right side ──
+.hero - astronaut - main {
+  position: absolute;
+  // Anchor to right edge, vertically centered
+  top: 50 %;
+  right: 0;
+  transform: translateY(-52 %);
+  z - index: 5;   // in front of STORY text
+  pointer - events: none;
+  animation: floatMain 7s ease -in -out infinite;
+
+    .astronaut - img - main {
+    // Height-based sizing keeps it proportional regardless of screen width
+    height: clamp(380px, 72vh, 800px);
+    width: auto;
+    object - fit: contain;
+    // PNG has black bg — mix-blend-mode lightens it on dark bg
+    mix - blend - mode: lighten;
+    filter: drop - shadow(0 0 50px rgba(160, 60, 255, 0.65));
+  }
+}
+
+// ── Astronaut SECONDARY — floating small ──
+.hero - astronaut - secondary {
+  position: absolute;
+  bottom: 140px;
+  right: clamp(60px, 8 %, 130px);
+  z - index: 4;
+  pointer - events: none;
+  animation: floatSmall 6s ease -in -out infinite reverse;
+
+    .astronaut - img - secondary {
+    width: clamp(100px, 13vw, 190px);
+    height: auto;
+    object - fit: contain;
+    mix - blend - mode: lighten;
+    filter: drop - shadow(0 0 16px rgba(160, 60, 255, 0.7));
+    transform: rotate(-10deg);
+  }
+}
+
+// ── Bottom-left tag ──
+.hero - top - left {
+  position: absolute;
+  bottom: 155px; left: 72px;
+  font - family: 'Unbounded', sans - serif;
+  font - weight: 300;
+  font - size: 11px;
+  line - height: 1.5;
+  text - transform: uppercase;
+  color: #fff;
+  width: 190px;
+  z - index: 15;
+  opacity: 0.6;
+}
+
+// ── DOMINATE THE NOISE — ghost outline text ──
+.hero - dominate {
+  position: absolute;
+  bottom: 50px; right: 4 %;
+  z - index: 2;  // behind floating astronaut (z-index 4)
+  text - align: right;
+  pointer - events: none;
+
+    h2 {
+    font - family: 'Orbitron', 'Conthrax', sans - serif;
+    font - weight: 900;
+    font - size: clamp(44px, 7.5vw, 120px);
+    color: transparent;
+    -webkit - text - stroke: 1.5px rgba(255, 255, 255, 0.2);
+    text - transform: uppercase;
+    margin: 0;
+    line - height: 0.85;
+    letter - spacing: -0.02em;
+  }
+}
+
+// ── Wavy SVG divider ──
+.hero - wave - divider {
+  position: absolute;
+  bottom: 0; left: 0;
+  width: 100 %; height: 160px;
+  z - index: 10;
+  pointer - events: none;
+  overflow: hidden;
+
+    svg {
+    width: 100 %; height: 100 %;
+    display: block;
+  }
+}
+
+
+// ===== INTRO SECTION =====
+.intro - section {
+  background: #000;
+  padding: 100px 0;
+  text - align: center;
+  position: relative;
+  z - index: 10;
+
+    .intro - text {
+    max - width: 900px;
+    margin: 0 auto 3rem;
+    font - family: 'Unbounded', sans - serif;
+    font - weight: 300;
+    font - size: clamp(14px, 1.6vw, 18px);
+    line - height: 1.7;
+    text - align: center;
+    color: #fff;
+    padding: 0 24px;
+  }
+
+    .intro - cta {
+    display: inline - block;
+    background: #000;
+    color: #fff;
+    text - decoration: none;
+    padding: 14px 40px;
+    border - radius: 50px;
+    font - family: 'Unbounded', sans - serif;
+    font - weight: 300;
+    font - size: 13px;
+    text - transform: capitalize;
+    border: 1px solid rgba(150, 0, 255, 0.4);
+    box - shadow: 0 0 20px rgba(150, 0, 255, 0.3);
+    transition: all 0.3s ease;
+
+        &:hover {
+      box - shadow: 0 0 30px rgba(150, 0, 255, 0.6);
+      transform: translateY(-2px);
+    }
+  }
+}
+
+
+// ===== WHO DO WE WORK WITH =====
+.who - section {
+  position: relative;
+  background: #000;
+  min - height: 800px;
+  overflow: hidden;
+  padding: 100px 0;
+
+    .who - planet {
+    position: absolute;
+    left: -30 %; top: 50 %;
+    transform: translateY(-50 %);
+    z - index: 1;
+    pointer - events: none;
+
+        .planet - img {
+      width: clamp(500px, 55vw, 1100px);
+      height: auto;
+      border - radius: 50 %;
+      object - fit: cover;
+      box - shadow: 0 0 100px rgba(150, 0, 255, 0.3);
+      opacity: 0.82;
+    }
+  }
+}
+
+.who - content {
+  position: relative;
+  z - index: 2;
+  padding: 0 72px;
+}
+
+.who - header {
+  text - align: right;
+  margin - bottom: 3rem;
+}
+
+.who - title {
+  font - family: 'Orbitron', 'Conthrax', sans - serif;
+  font - weight: 700;
+  font - size: clamp(38px, 7.5vw, 95px);
+  line - height: 0.92;
+  text - transform: uppercase;
+  color: #fff;
+  display: inline - block;
+  text - align: right;
+}
+
+.who - list {
+  display: flex;
+  flex - direction: column;
+  // Indent list items to the right so planet shows on left
+  padding - left: clamp(0px, 44 %, 640px);
+}
+
+.who - item {
+  display: flex;
+  align - items: center;
+  justify - content: space - between;
+  padding: 1.4rem 0;
+
+    .who - item - left {
+    display: flex;
+    flex - direction: column;
+    line - height: 1;
+
+        .who - label - white {
+      font - family: 'Orbitron', 'Conthrax', sans - serif;
+      font - weight: 700;
+      font - size: clamp(26px, 4.2vw, 56px);
+      line - height: 1.1;
+      text - transform: uppercase;
+      color: #fff;
+    }
+
+        .who - label - purple {
+      font - family: 'Orbitron', 'Conthrax', sans - serif;
+      font - weight: 700;
+      font - size: clamp(26px, 4.2vw, 56px);
+      line - height: 1.1;
+      text - transform: uppercase;
+      color: #CF8BF3;
+    }
+  }
+
+    .who - item - desc {
+    font - family: 'Unbounded', sans - serif;
+    font - weight: 400;
+    font - size: 12px;
+    line - height: 1.5;
+    text - align: right;
+    text - transform: uppercase;
+    color: #A4A4A4;
+    width: 240px;
+    flex - shrink: 0;
+  }
+}
+
+.who - divider {
+  height: 1px;
+  background: rgba(255, 255, 255, 0.2);
+  width: 100 %;
+  margin: 0.5rem 0;
+}
+
+
+// ===== STATEMENT SECTION =====
+.statement - section {
+  background: #000;
+  padding: 100px 0;
+
+    .statement - inner {
+    display: flex;
+    align - items: flex - start;
+    justify - content: space - between;
+    gap: 40px;
+    margin - bottom: 60px;
+  }
+
+    .statement - left { flex: 1; }
+
+    .statement - title {
+    font - family: 'Orbitron', 'Conthrax', sans - serif;
+    font - weight: 700;
+    font - size: clamp(26px, 3.5vw, 56px);
+    line - height: 1.2;
+    text - transform: uppercase;
+    color: #fff;
+    max - width: 860px;
+
+        .statement - purple { color: #CF8BF3; }
+  }
+
+    .statement - right {
+    flex - shrink: 0;
+    width: clamp(180px, 28vw, 340px);
+  }
+
+    .statement - desc {
+    font - family: 'Unbounded', sans - serif;
+    font - weight: 300;
+    font - size: 13px;
+    line - height: 1.5;
+    text - transform: uppercase;
+    color: #585858;
+    text - align: right;
+  }
+}
+
+
+// ===== STATS =====
+.stats - section {
+  background: #000;
+  padding: 60px 0 80px;
+
+    .stats - label {
+    font - family: 'Unbounded', sans - serif;
+    font - weight: 300;
+    font - size: 13px;
+    line - height: 1.2;
+    text - transform: uppercase;
+    color: #fff;
+    margin - bottom: 2rem;
+    display: block;
+    opacity: 0.55;
+  }
+
+    .stats - row {
+    display: flex;
+    align - items: center;
+    justify - content: space - between;
+    gap: 2rem;
+    padding - top: 2rem;
+    border - top: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+    .stat - item {
+    display: flex;
+    flex - direction: column;
+    align - items: center;
+
+        .stat - number {
+      font - family: 'Orbitron', 'Conthrax', sans - serif;
+      font - weight: 700;
+      font - size: clamp(36px, 4.5vw, 58px);
+      line - height: 1;
+      color: #CF8BF3;
+      margin - bottom: 0.5rem;
+    }
+
+        .stat - label {
+      font - family: 'Unbounded', sans - serif;
+      font - weight: 300;
+      font - size: clamp(12px, 1.4vw, 17px);
+      line - height: 1;
+      text - transform: uppercase;
+      color: #fff;
+    }
+  }
+
+    .stat - divider {
+    width: 1px;
+    height: 60px;
+    background: rgba(255, 255, 255, 0.2);
+    flex - shrink: 0;
+  }
+}
+
+
+// ===== ANIMATIONS =====
+@keyframes floatMain {
+  0 %, 100 % { transform: translateY(-52 %); }
+  50 % { transform: translateY(calc(-52 % - 18px)); }
+}
+
+@keyframes floatSmall {
+  0 %, 100 % { transform: rotate(-10deg) translateY(0); }
+  50 % { transform: rotate(-10deg) translateY(- 14px);
+}
+}
+
+
+// ===== RESPONSIVE =====
+@media(max - width: 960px) {
+    .hero - inner { padding: 100px 24px 120px; }
+    .hero - top - right { display: none; }
+
+    .hero - title - main {
+    font - size: clamp(70px, 18vw, 130px);
+    max - width: 100 %;
+  }
+
+    .hero - astronaut - main {
+        .astronaut - img - main { height: clamp(280px, 50vh, 460px); }
+  }
+
+    .hero - astronaut - secondary { display: none; }
+
+    .hero - dominate h2 { font - size: clamp(34px, 9vw, 72px); }
+
+    .who - content { padding: 0 24px; }
+    .who - list { padding - left: 0; }
+
+    .who - item {
+    flex - direction: column;
+    align - items: flex - start;
+    gap: 10px;
+
+        .who - item - desc { text - align: left; width: 100 %; }
+  }
+
+    .statement - section.statement - inner { flex - direction: column; }
+
+    .stats - row { flex - wrap: wrap; gap: 3rem; }
+    .stat - divider { display: none; }
 }
