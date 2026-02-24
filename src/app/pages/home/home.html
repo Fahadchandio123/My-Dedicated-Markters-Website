@@ -1,149 +1,74 @@
-<!-- ===== HERO SECTION ===== -->
 <section class="hero">
-    <div class="hero-bg-glow"></div>
-    <div class="hero-bg-bottom"></div>
-
-    <!-- Decorative swoosh arrow (13.png) -->
-    <div class="hero-decor-13">
-        <img src="assets/13.png" alt="" aria-hidden="true">
-    </div>
-
-    <div class="hero-inner">
-        <!-- Top Row: Headline + Side Description -->
-        <div class="hero-row-top">
-            <h1 class="hero-title-top">ELEVATE YOUR</h1>
-            <div class="hero-side-desc">
-                FROM POSITIONING TO ADS WE<br>
-                CRAFT SYSTEMS THAT GROWS<br>
-                YOUR IMAGE AND YOUR SALES
-            </div>
+    <div class="hero-glow"></div>
+    <div class="hero-swoosh"><img src="assets/13.png" alt="" aria-hidden="true" /></div>
+    <div class="hero-content container">
+        <div class="hero-top-row">
+            <h1>
+                ELEVATE YOUR
+                <span>STORY</span>
+            </h1>
+            <p>FROM POSITIONING TO ADS WE CRAFT SYSTEMS THAT GROWS YOUR IMAGE AND YOUR SALES</p>
         </div>
-
-        <!-- Main Headline -->
-        <div class="hero-headline-main">
-            <h1 class="hero-title-main">STORY</h1>
-        </div>
-
-        <!-- Middle Row: Small Label -->
-        <div class="hero-row-mid">
-            <div class="hero-small-label">
-                WE SCALE VISIONARY<br>COMPANIES
-            </div>
-        </div>
-
-        <!-- Astronauts -->
-        <div class="hero-astronaut-main">
-            <img src="assets/astronaut-standing.png" alt="Astronaut" class="astronaut-img-main">
-        </div>
-
-        <div class="hero-astronaut-secondary">
-            <img src="assets/astronaut-floating.png" alt="Astronaut floating" class="astronaut-img-secondary">
-        </div>
-
-        <!-- Bottom right big text -->
+        <p class="hero-left-note">WE SCALE VISSIONARY COMPANIES</p>
+        <img class="hero-astro-main" src="assets/astronaut-standing.png" alt="Astronaut" />
+        <img class="hero-astro-float" src="assets/astronaut-floating.png" alt="Floating astronaut" />
         <div class="hero-dominate">
-            <h2>DOMINATE</h2>
-            <h2>THE NOISE</h2>
+            <span>DOMINATE</span>
+            <span>THE NOISE</span>
         </div>
     </div>
-    <!-- Wavy divider -->
-    <div class="hero-wave-divider">
-        <svg viewBox="0 0 1440 120" preserveAspectRatio="none">
-            <path d="M0,60 C360,120 1080,0 1440,60 L1440,120 L0,120 Z" fill="#231037" />
-            <path d="M0,80 C360,20 1080,100 1440,80 L1440,120 L0,120 Z" fill="#351953" />
-        </svg>
-    </div>
+    <div class="hero-curve"></div>
 </section>
-
-<!-- ===== INTRO TEXT SECTION ===== -->
-<section class="intro-section">
-    <div class="container">
-        <p class="intro-text">
-            From Initial Trajectory Plotting To Interstellar Advertising. We Engineer
-            Comprehensive Brand Systems Designed To Launch Your Image Into New
-            Stratospheres And Propel Your Sales Light-Years Ahead.
+<section class="intro">
+    <div class="container intro-inner">
+        <p>
+            From Initial Trajectory Plotting To Interstellar Advertising, We Engineer Comprehensive Brand
+            Systems Designed To Launch Your Image Into New Stratospheres And Propel Your Sales
+            Light-Years Ahead.
         </p>
-        <a routerLink="/contact" class="btn btn-intro-cta intro-cta">Get Started</a>
+        <a class="btn btn-primary" routerLink="/contact">Get Started</a>
     </div>
 </section>
+<section class="who">
+    <img class="who-planet" src="assets/planet.jpg" alt="Purple planet" />
 
-<!-- ===== WHO DO WE WORK WITH ===== -->
-<section class="who-section">
-    <div class="who-planet">
-        <img src="assets/planet.jpg" alt="Galaxy Planet" class="planet-img">
-    </div>
-    <div class="who-content">
-        <div class="who-header">
-            <h2 class="who-title">WHO DO WE<br>WORK WITH?</h2>
-        </div>
-        <div class="who-list-wrapper">
-            <div class="who-list">
-                <div class="who-item">
-                    <div class="who-item-left">
-                        <span class="who-label-white">SMALL</span>
-                        <span class="who-label-purple">BUSINESS</span>
-                    </div>
-                    <p class="who-item-desc">NEED MORE CLIENTS FAST AND CHEAP BUT IT HAS TO OUTSHINE THE COMPETITION.
-                    </p>
-                </div>
-                <div class="who-divider"></div>
-                <div class="who-item">
-                    <div class="who-item-left">
-                        <span class="who-label-white">INFO</span>
-                        <span class="who-label-purple">BUSINESS</span>
-                    </div>
-                    <p class="who-item-desc">NEED MORE CLIENTS FAST AND CHEAP BUT IT HAS TO OUTSHINE THE COMPETITION.
-                    </p>
-                </div>
-                <div class="who-divider"></div>
-                <div class="who-item">
-                    <div class="who-item-left">
-                        <span class="who-label-white">NEW</span>
-                        <span class="who-label-purple">STARTUPS</span>
-                    </div>
-                    <p class="who-item-desc">NEED MORE CLIENTS FAST AND CHEAP BUT IT HAS TO OUTSHINE THE COMPETITION.
-                    </p>
-                </div>
-            </div>
+    <div class="container who-inner">
+        <h2>WHO DO WE<br />WORK WITH?</h2>
+
+        <div class="who-list">
+            <article>
+                <h3><span>SMALL</span> <em>BUSINESS</em></h3>
+                <p>NEED MORE CLIENTS FAST AND CHEAP BUT IT HAS TO OUTSHINE THE COMPETITION</p>
+            </article>
+            <article>
+                <h3><span>INFO</span> <em>BUSINESS</em></h3>
+                <p>NEED MORE CLIENTS FAST AND CHEAP BUT IT HAS TO OUTSHINE THE COMPETITION</p>
+            </article>
+            <article>
+                <h3><span>NEW</span> <em>STARTUPS</em></h3>
+                <p>NEED MORE CLIENTS FAST AND CHEAP BUT IT HAS TO OUTSHINE THE COMPETITION</p>
+            </article>
         </div>
     </div>
 </section>
-
-<!-- ===== MARKETING & STATS SECTION ===== -->
-<section class="statement-section">
+<section class="numbers">
     <div class="container">
-        <div class="statement-inner">
-            <div class="statement-left">
-                <h2 class="statement-title">
-                    WE CREATE MARKETING THAT PEOPLE CAN'T IGNORE <span class="statement-purple">SO WE HAVE...</span>
-                </h2>
-            </div>
-            <div class="statement-right">
-                <p class="statement-desc">OUR APPROACH IS A COMBINATION OF CREATIVITY, TECHNOLOGY AND STRATEGY.</p>
-            </div>
+        <div class="numbers-head">
+            <h2>
+                WE CREATE<br />
+                MARKETING THAT<br />
+                PEOPLE CAN'T IGNORE<br />
+                <span>SO WE HAVE...</span>
+            </h2>
+            <p>/OUR APPROACH IS A COMBINATION OF CREATIVE, TECHNOLOGY AND STRATEGY</p>
         </div>
-        <div class="stats-section">
-            <div class="stats-label">(ABOUT US IN NUMBERS)</div>
-            <div class="stats-row">
-                <div class="stat-item">
-                    <span class="stat-number" id="stat-0">231+</span>
-                    <span class="stat-label">PROJECTS DONE</span>
-                </div>
-                <div class="stat-divider"></div>
-                <div class="stat-item">
-                    <span class="stat-number" id="stat-1">212+</span>
-                    <span class="stat-label">CLIENTS HAPPY</span>
-                </div>
-                <div class="stat-divider"></div>
-                <div class="stat-item">
-                    <span class="stat-number" id="stat-2">4.7</span>
-                    <span class="stat-label">CLIENTS RATING</span>
-                </div>
-                <div class="stat-divider"></div>
-                <div class="stat-item">
-                    <span class="stat-number" id="stat-3">35+</span>
-                    <span class="stat-label">AWARDS</span>
-                </div>
+        <div class="stats-wrap">
+            <span class="stats-kicker">( ABOUT US IN NUMBER )</span>
+            <div class="stats-grid">
+                <div><strong>231+</strong><span>PROJECTS DONE</span></div>
+                <div><strong>212+</strong><span>CLINETS HAPPY</span></div>
+                <div><strong>4.7</strong><span>CLIENTS RATING</span></div>
+                <div><strong>35+</strong><span>AWARDS</span></div>
             </div>
         </div>
     </div>
