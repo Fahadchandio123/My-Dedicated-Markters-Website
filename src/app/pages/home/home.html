@@ -18,9 +18,7 @@
         </div>
     </div>
     <div class="hero-curve"></div>
-</section>
-<section class="intro">
-    <div class="container intro-inner">
+    <div class="hero-intro container">
         <p>
             From Initial Trajectory Plotting To Interstellar Advertising, We Engineer Comprehensive Brand
             Systems Designed To Launch Your Image Into New Stratospheres And Propel Your Sales
@@ -62,13 +60,13 @@
             </h2>
             <p>/OUR APPROACH IS A COMBINATION OF CREATIVE, TECHNOLOGY AND STRATEGY</p>
         </div>
-        <div class="stats-wrap">
+        <div class="stats-wrap" #statsSection>
             <span class="stats-kicker">( ABOUT US IN NUMBER )</span>
             <div class="stats-grid">
-                <div><strong>231+</strong><span>PROJECTS DONE</span></div>
-                <div><strong>212+</strong><span>CLINETS HAPPY</span></div>
-                <div><strong>4.7</strong><span>CLIENTS RATING</span></div>
-                <div><strong>35+</strong><span>AWARDS</span></div>
+                <div *ngFor="let stat of stats; let i = index" [style.--i]="i" class="stat-card">
+                    <strong #statValue class="stat-value">{{ stat.value }}</strong>
+                    <span class="stat-label">{{ stat.label }}</span>
+                </div>
             </div>
         </div>
     </div>

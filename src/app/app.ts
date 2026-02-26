@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { Navbar } from './components/navbar/navbar';
+
 import { Cursor } from './components/cursor/cursor';
 
 @Component({
@@ -14,6 +15,7 @@ import { Cursor } from './components/cursor/cursor';
     <main>
       <router-outlet></router-outlet>
     </main>
+
   `,
   styles: [`
     main {
