@@ -1,6 +1,10 @@
 import { CommonModule } from '@angular/common';
-import { Component, AfterViewInit, OnDestroy, ViewChildren, QueryList, ElementRef } from '@angular/core';
+import { Component, AfterViewInit, OnDestroy } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
 
 @Component({
     selector: 'app-home',
@@ -10,86 +14,50 @@ import { RouterLink } from '@angular/router';
     styleUrl: './home.scss'
 })
 export class Home implements AfterViewInit, OnDestroy {
+
     stats = [
-        { value: '231+', label: 'PROJECTS DONE' },
-        { value: '212+', label: 'CLIENTS HAPPY' },
-        { value: '4.7', label: 'CLIENTS RATING' },
-        { value: '35+', label: 'AWARDS' }
+        { value: 231, suffix: '+', label: 'PROJECTS DONE', decimals: 0 },
+        { value: 212, suffix: '+', label: 'CLIENTS HAPPY', decimals: 0 },
+        { value: 4.7, suffix: '', label: 'CLIENTS RATING', decimals: 1 },
+        { value: 35, suffix: '+', label: 'AWARDS', decimals: 0 }
     ];
 
-    @ViewChildren('statValue') statValueEls!: QueryList<ElementRef<HTMLElement>>;
-
-    private observer: IntersectionObserver | null = null;
-    private timers: ReturnType<typeof setTimeout>[] = [];
-    private hasRun = false;
-
     ngAfterViewInit(): void {
-        // Observe the first stat value to know when section is in view
-        const firstEl = this.statValueEls.first?.nativeElement;
-        if (!firstEl) return;
+        setTimeout(() => {
+            const section = document.querySelector('.stats-wrap');
+            const els = document.querySelectorAll<HTMLElement>('.stat-value');
+            if (!section || !els.length) return;
 
-        this.observer = new IntersectionObserver(entries => {
-            if (entries[0].isIntersecting && !this.hasRun) {
-                this.hasRun = true;
-                this.runScramble();
-            }
-        }, { threshold: 0.5 });
+            // Trigger ONCE when stats section is 30% visible
+            ScrollTrigger.create({
+                trigger: section,
+                start: 'top 80%',
+                once: true,
+                onEnter: () => {
+                    this.stats.forEach((stat, i) => {
+                        const el = els[i];
+                        if (!el) return;
 
-        this.observer.observe(firstEl);
+                        const proxy = { val: 0 };
+                        gsap.to(proxy, {
+                            val: stat.value,
+                            duration: 1.8,
+                            delay: i * 0.2,
+                            ease: 'power3.out',
+                            onUpdate() {
+                                el.textContent = proxy.val.toFixed(stat.decimals) + stat.suffix;
+                            },
+                            onComplete() {
+                                el.textContent = stat.value.toFixed(stat.decimals) + stat.suffix;
+                            }
+                        });
+                    });
+                }
+            });
+        }, 300);
     }
 
     ngOnDestroy(): void {
-        this.observer?.disconnect();
-        this.timers.forEach(t => clearTimeout(t));
-    }
-
-    private scrambleText(el: HTMLElement, finalText: string, delay: number): void {
-        const duration = 900;
-        const tickRate = 40;
-        const ticks = duration / tickRate;
-        let tick = 0;
-
-        // Parse numeric part and suffix (e.g. "231+" → num=231, suffix="+")
-        const match = finalText.match(/^([\d.]+)(.*)$/);
-        if (!match) {
-            el.textContent = finalText;
-            return;
-        }
-
-        const finalNum = parseFloat(match[1]);
-        const suffix = match[2] ?? '';
-        const isDecimal = finalText.includes('.');
-        const decimals = isDecimal ? (match[1].split('.')[1]?.length ?? 1) : 0;
-
-        // Start from a higher number and count down
-        const startNum = finalNum * 3.5;
-
-        const t = setTimeout(() => {
-            const interval = setInterval(() => {
-                tick++;
-                const progress = tick / ticks;
-                // Ease-out: fast at start, slow at end
-                const eased = 1 - Math.pow(1 - progress, 2);
-                const current = startNum - (startNum - finalNum) * eased;
-
-                el.textContent = current.toFixed(decimals) + suffix;
-
-                if (tick >= ticks) {
-                    clearInterval(interval);
-                    el.textContent = finalText;
-                }
-            }, tickRate);
-        }, delay);
-
-        this.timers.push(t);
-    }
-
-    private runScramble(): void {
-        this.statValueEls.forEach((ref, i) => {
-            const final = this.stats[i].value;
-            // Clear to dashes first
-            ref.nativeElement.textContent = final.replace(/[^\s]/g, '-');
-            this.scrambleText(ref.nativeElement, final, i * 200);
-        });
+        ScrollTrigger.getAll().forEach(t => t.kill());
     }
 }

@@ -81,6 +81,12 @@
         },
         "serve": {
           "builder": "@angular/build:dev-server",
+          "options": {
+            "allowedHosts": [
+              "sclerometric-disquietedly-cheryle.ngrok-free.dev",
+              "all"
+            ]
+          },
           "configurations": {
             "production": {
               "buildTarget": "my-digital-marketers:build:production"

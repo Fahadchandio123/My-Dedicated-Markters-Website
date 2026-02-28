@@ -63,9 +63,9 @@
         <div class="stats-wrap" #statsSection>
             <span class="stats-kicker">( ABOUT US IN NUMBER )</span>
             <div class="stats-grid">
-                <div *ngFor="let stat of stats; let i = index" [style.--i]="i" class="stat-card">
-                    <strong #statValue class="stat-value">{{ stat.value }}</strong>
-                    <span class="stat-label">{{ stat.label }}</span>
+                <div *ngFor="let stat of stats; let i = index" [style.--stat-index]="i">
+                    <strong #statVal class="stat-value">0</strong>
+                    <span>{{ stat.label }}</span>
                 </div>
             </div>
         </div>
