@@ -6,6 +6,16 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
 
+interface ServiceLineItem {
+  name: string;
+  status: string;
+}
+
+interface ServiceCardItem {
+  title: string;
+  desc: string;
+}
+
 @Component({
   selector: 'app-services',
   standalone: true,
@@ -14,41 +24,86 @@ gsap.registerPlugin(ScrollTrigger);
   styleUrl: './services.scss'
 })
 export class Services implements AfterViewInit {
-  services = [
-    {
-      icon: '🎯', title: 'SEO Optimization', price: 'From $999/mo',
-      desc: 'Dominate search rankings with our proven SEO strategies. We handle everything from technical audits to content optimization.',
-      features: ['Technical SEO Audit', 'Keyword Research', 'On-Page Optimization', 'Link Building', 'Monthly Reporting']
-    },
-    {
-      icon: '📱', title: 'Social Media Marketing', price: 'From $799/mo',
-      desc: 'Build a powerful social presence that drives engagement, followers, and real business results.',
-      features: ['Content Strategy', 'Daily Posting', 'Community Management', 'Influencer Outreach', 'Analytics Dashboard']
-    },
-    {
-      icon: '💡', title: 'PPC Advertising', price: 'From $1,299/mo',
-      desc: 'Maximize your ad spend with precision-targeted campaigns across Google, Meta, and more.',
-      features: ['Campaign Strategy', 'Ad Copywriting', 'A/B Testing', 'Bid Management', 'Conversion Tracking']
-    },
-    {
-      icon: '✍️', title: 'Content Marketing', price: 'From $699/mo',
-      desc: 'Compelling content that educates your audience, builds trust, and drives organic growth.',
-      features: ['Content Strategy', 'Blog Writing', 'Video Scripts', 'Infographics', 'Content Calendar']
-    },
-    {
-      icon: '📧', title: 'Email Marketing', price: 'From $499/mo',
-      desc: 'Nurture leads and retain customers with personalized email campaigns that convert.',
-      features: ['List Segmentation', 'Automation Flows', 'Template Design', 'A/B Testing', 'Performance Reports']
-    },
-    {
-      icon: '🌐', title: 'Web Design & Dev', price: 'From $2,999',
-      desc: 'Beautiful, high-converting websites built for speed, SEO, and user experience.',
-      features: ['Custom Design', 'Mobile Responsive', 'SEO Optimized', 'CMS Integration', '3 Months Support']
-    },
+  heroFeatures: string[] = [
+    'Positioning Strategy',
+    'Content Direction',
+    'Paid Media Systems',
+    'Social Growth Funnels',
+    'Performance Tracking'
   ];
 
-  ngAfterViewInit() {
-    gsap.fromTo('.services-hero-content > *', { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.8, stagger: 0.15, delay: 0.2 });
-    gsap.fromTo('.service-detail-card', { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.6, stagger: 0.1, scrollTrigger: { trigger: '.services-detail-grid', start: 'top 80%' } });
+
+  expertisePoints: string[] = [
+    'Expertise in Digital Solutions',
+    'Innovative Design Approach',
+    'Strategic Digital Marketing',
+    'Data-Driven Decisions',
+    'Holistic Security Measures',
+    'Tailored Digital Strategy',
+    'Responsive & Scalable',
+    'Proven Track Record'
+  ];
+
+  chips: string[] = [
+    'WEBSITE DEVELOPMENT',
+    'SOCIAL MEDIA MARKETING',
+    'EMAIL MARKETING',
+    'UI / UX',
+    'VIDEO EDITING',
+    'SEO',
+    'GOOGLE ADS',
+    'GRAPHIC DESIGN',
+    'BRAND IDENTITY'
+  ];
+  serviceLines: ServiceLineItem[] = [
+    { name: 'Web Design', status: 'Portfolio' },
+    { name: 'Design Strategy', status: 'Portfolio' },
+    { name: 'SEO Site', status: 'Portfolio' },
+    { name: 'Brand Assets', status: 'Portfolio' },
+    { name: 'Lead Generation', status: 'Portfolio' },
+    { name: 'Video Editing', status: 'Portfolio' }
+  ];
+
+  processSteps = [
+    { title: 'From Consultation', desc: 'We audit your current brand setup and map where conversions are leaking.' },
+    { title: 'Discover Your Needs', desc: 'We align strategy, offer, and channels with your business goals.' },
+    { title: 'Plan & Execute', desc: 'Our team launches creative, ads, and funnels in one focused sprint.' },
+    { title: 'Launch & Scale', desc: 'We optimize on data and scale what performs across every touchpoint.' }
+  ];
+
+  reviewsOrbit: ServiceCardItem[] = [
+    { title: 'Great Team', desc: 'Fast results' },
+    { title: 'Clear Strategy', desc: 'Easy process' },
+    { title: 'Creative Ads', desc: 'High quality' },
+    { title: 'Amazing Support', desc: 'Always available' },
+    { title: 'Lead Quality', desc: 'Very strong' },
+    { title: 'Real Growth', desc: 'Measurable ROI' }
+  ];
+
+  faqs = [
+    'What Services Does Your Agency Offer?',
+    'How Do You Ensure The Quality Of Your Work?',
+    'How Do You Handle Revisions Or Changes?',
+    'What If I\'m Not Satisfied With The Final Result?'
+  ];
+
+  ngAfterViewInit(): void {
+    gsap.fromTo(
+      '.services-hero-content > *',
+      { opacity: 0, y: 40 },
+      { opacity: 1, y: 0, duration: 0.8, stagger: 0.12, delay: 0.2 }
+    );
+
+    gsap.fromTo(
+      '.service-detail-card',
+      { opacity: 0, y: 40 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.6,
+        stagger: 0.1,
+        scrollTrigger: { trigger: '.line-list', start: 'top 82%' }
+      }
+    );
   }
 }
