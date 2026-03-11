@@ -3,23 +3,49 @@
         <a routerLink="/" class="nav-logo">
             <img src="assets/logo.png" alt="My Digital Marketers" class="logo-img" />
         </a>
+
         <div class="nav-links">
             <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Home</a>
             <a routerLink="/about" routerLinkActive="active">About</a>
-            <a routerLink="/services" routerLinkActive="active">Services</a>
+            <div class="services-dropdown" [class.open]="isServicesDropdownOpen">
+                <button type="button" class="services-trigger" (click)="toggleServicesDropdown($event)"
+                    (keydown.escape)="closeServicesDropdown()" aria-haspopup="true"
+                    [attr.aria-expanded]="isServicesDropdownOpen">
+                    Services
+                </button>
+
+                <div class="services-menu" role="menu">
+                    @for (service of servicesProvided; track service.label) {
+                    <a [routerLink]="service.path" [queryParams]="service.queryParams" routerLinkActive="active"
+                        role="menuitem" (click)="closeServicesDropdown()">
+                        {{ service.label }}
+                    </a>
+                    }
+                </div>
+            </div>
+
             <a routerLink="/portfolio" routerLinkActive="active">Our Team</a>
             <a routerLink="/contact" routerLinkActive="active">Contact</a>
             <a routerLink="/portfolio" routerLinkActive="active">Blog</a>
         </div>
         <a routerLink="/contact" class="nav-cta">Get Started</a>
+
         <button class="hamburger" (click)="toggleMenu()" [class.open]="isMenuOpen">
             <span></span><span></span><span></span>
         </button>
     </div>
+
     <div class="mobile-menu" [class.open]="isMenuOpen">
         <a routerLink="/" (click)="toggleMenu()">Home</a>
         <a routerLink="/about" (click)="toggleMenu()">About</a>
         <a routerLink="/services" (click)="toggleMenu()">Services</a>
+
+        <div class="mobile-services-list">
+            @for (service of servicesProvided; track service.label) {
+            <a [routerLink]="service.path" [queryParams]="service.queryParams" (click)="toggleMenu()">{{ service.label
+                }}</a>
+            }
+        </div>
         <a routerLink="/portfolio" (click)="toggleMenu()">Our Team</a>
         <a routerLink="/contact" (click)="toggleMenu()">Contact</a>
         <a routerLink="/portfolio" (click)="toggleMenu()">Blog</a>

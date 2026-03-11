@@ -16,6 +16,12 @@ interface ServiceCardItem {
   desc: string;
 }
 
+interface TestimonialBubble {
+  quote: string;
+  name: string;
+  className: string;
+}
+
 @Component({
   selector: 'app-services',
   standalone: true,
@@ -55,6 +61,7 @@ export class Services implements AfterViewInit {
     'GRAPHIC DESIGN',
     'BRAND IDENTITY'
   ];
+
   serviceLines: ServiceLineItem[] = [
     { name: 'Web Design', status: 'Portfolio' },
     { name: 'Design Strategy', status: 'Portfolio' },
@@ -78,6 +85,14 @@ export class Services implements AfterViewInit {
     { title: 'Amazing Support', desc: 'Always available' },
     { title: 'Lead Quality', desc: 'Very strong' },
     { title: 'Real Growth', desc: 'Measurable ROI' }
+  ];
+
+  testimonialBubbles: TestimonialBubble[] = [
+    { quote: 'The results are outstanding!', name: 'Gracie Abrams', className: 'b1' },
+    { quote: 'Nice work, love it!🔥', name: 'Byeon Wo Soek', className: 'b2' },
+    { quote: 'Nice work, love it!🔥', name: 'Byeon Wo Soek', className: 'b3' },
+    { quote: 'Highly Recommended!', name: 'Carlos Sainz', className: 'b4' },
+    { quote: 'That was amazing! Great job!', name: 'Louis Patridge', className: 'b5' }
   ];
 
   faqs = [
