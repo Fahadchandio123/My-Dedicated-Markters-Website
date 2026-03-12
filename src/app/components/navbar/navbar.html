@@ -5,18 +5,20 @@
         </a>
 
         <div class="nav-links">
-            <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Home</a>
-            <a routerLink="/about" routerLinkActive="active">About</a>
+            <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"
+                (click)="closeServicesDropdown()">Home</a>
+            <a routerLink="/about" routerLinkActive="active" (click)="closeServicesDropdown()">About</a>
             <div class="services-dropdown" [class.open]="isServicesDropdownOpen">
                 <button type="button" class="services-trigger" (click)="toggleServicesDropdown($event)"
                     (keydown.escape)="closeServicesDropdown()" aria-haspopup="true"
                     [attr.aria-expanded]="isServicesDropdownOpen">
-                    Services
+                    Services <span class="caret" aria-hidden="true">▾</span>
                 </button>
 
                 <div class="services-menu" role="menu">
                     @for (service of servicesProvided; track service.label) {
                     <a [routerLink]="service.path" [queryParams]="service.queryParams" routerLinkActive="active"
+                        [routerLinkActiveOptions]="{ paths: 'exact', queryParams: 'exact', fragment: 'ignored', matrixParams: 'ignored' }"
                         role="menuitem" (click)="closeServicesDropdown()">
                         {{ service.label }}
                     </a>
@@ -24,11 +26,11 @@
                 </div>
             </div>
 
-            <a routerLink="/portfolio" routerLinkActive="active">Our Team</a>
-            <a routerLink="/contact" routerLinkActive="active">Contact</a>
-            <a routerLink="/portfolio" routerLinkActive="active">Blog</a>
+            <a routerLink="/portfolio" routerLinkActive="active" (click)="closeServicesDropdown()">Our Team</a>
+            <a routerLink="/contact" routerLinkActive="active" (click)="closeServicesDropdown()">Contact</a>
+            <a routerLink="/portfolio" routerLinkActive="active" (click)="closeServicesDropdown()">Blog</a>
         </div>
-        <a routerLink="/contact" class="nav-cta">Get Started</a>
+        <a routerLink="/contact" class="nav-cta" (click)="closeServicesDropdown()">Get Started</a>
 
         <button class="hamburger" (click)="toggleMenu()" [class.open]="isMenuOpen">
             <span></span><span></span><span></span>

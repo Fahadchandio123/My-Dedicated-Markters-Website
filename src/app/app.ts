@@ -1,13 +1,13 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { Navbar } from './components/navbar/navbar';
+import { NavbarComponent } from './components/navbar/navbar';
 
 import { Cursor } from './components/cursor/cursor';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, Navbar, Cursor],
+  imports: [RouterOutlet, NavbarComponent, Cursor],
   template: `
     <app-cursor></app-cursor>
     <div class="noise-overlay"></div>

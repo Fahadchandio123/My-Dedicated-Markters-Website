@@ -15,7 +15,7 @@ interface ServiceDropdownItem {
   templateUrl: './navbar.html',
   styleUrl: './navbar.scss'
 })
-export class Navbar implements OnInit {
+export class NavbarComponent implements OnInit {
   isScrolled = false;
   isMenuOpen = false;
   isServicesDropdownOpen = false;
