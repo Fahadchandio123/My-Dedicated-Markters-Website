@@ -1,26 +1,30 @@
-import { Component, AfterViewInit } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { AfterViewInit, Component, OnDestroy } from '@angular/core';
+import { ActivatedRoute, RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
-gsap.registerPlugin(ScrollTrigger);
-
-interface ServiceLineItem {
-  name: string;
-  status: string;
+interface CoreService {
+  key: string;
+  title: string;
+  subtitle: string;
+  description: string;
+  metric: string;
+  icon: string;
 }
 
-interface ServiceCardItem {
+interface AdvantageCard {
+  title: string;
+  body: string;
+}
+
+interface RoadmapStep {
+  step: string;
   title: string;
   desc: string;
 }
 
-interface TestimonialBubble {
-  quote: string;
-  name: string;
-  className: string;
-}
+gsap.registerPlugin(ScrollTrigger);
 
 @Component({
   selector: 'app-services',
@@ -29,96 +33,111 @@ interface TestimonialBubble {
   templateUrl: './services.html',
   styleUrl: './services.scss'
 })
-export class Services implements AfterViewInit {
-  heroFeatures: string[] = [
-    'Positioning Strategy',
-    'Content Direction',
-    'Paid Media Systems',
-    'Social Growth Funnels',
-    'Performance Tracking'
+export class Services implements AfterViewInit, OnDestroy {
+  selectedService = '';
+
+  coreFour: CoreService[] = [
+    {
+      key: 'seo',
+      title: 'SEO',
+      subtitle: 'Strategy-first, data-driven organic growth',
+      description: 'From technical SEO and content clusters to authority building, we engineer compounding traffic systems that convert intent into pipeline.',
+      metric: '+164% Qualified Organic Sessions',
+      icon: 'search'
+    },
+    {
+      key: 'smm',
+      title: 'Social Media Marketing',
+      subtitle: 'Content that builds communities',
+      description: 'We turn your brand voice into repeatable social series that drive relevance, engagement, and inbound demand across modern channels.',
+      metric: '4.1x Engagement Lift',
+      icon: 'users'
+    },
+    {
+      key: 'ppc',
+      title: 'Pay-Per-Click (PPC)',
+      subtitle: 'High-ROI lead generation',
+      description: 'We build full-funnel paid media systems with clear attribution, creative testing loops, and ruthless cost-per-acquisition efficiency.',
+      metric: '38% Lower Cost per SQL',
+      icon: 'target'
+    },
+    {
+      key: 'content',
+      title: 'Content Marketing',
+      subtitle: 'Authority-building storytelling',
+      description: 'From positioning narratives to conversion copy, we publish content that educates buyers, earns trust, and moves decisions forward.',
+      metric: '3.4x Faster Sales Conversations',
+      icon: 'pen'
+    }
   ];
 
-
-  expertisePoints: string[] = [
-    'Expertise in Digital Solutions',
-    'Innovative Design Approach',
-    'Strategic Digital Marketing',
-    'Data-Driven Decisions',
-    'Holistic Security Measures',
-    'Tailored Digital Strategy',
-    'Responsive & Scalable',
-    'Proven Track Record'
+  dedicatedAdvantages: AdvantageCard[] = [
+    {
+      title: 'Dedicated Talent, Not Rotating Accounts',
+      body: 'You get a focused team embedded in your weekly rhythm, not a revolving cast that relearns your business every month.'
+    },
+    {
+      title: 'Integrated with Your Stack',
+      body: 'We plug into your CRM, analytics, ad accounts, and workflows to execute with full visibility and operational speed.'
+    },
+    {
+      title: 'Transparent Performance Cadence',
+      body: 'Weekly sprint updates + monthly growth reviews ensure decisions are data-backed and tied to real business outcomes.'
+    },
+    {
+      title: 'Built to Scale with You',
+      body: 'As your growth targets evolve, your dedicated pod scales in capacity, channels, and complexity without friction.'
+    }
+  ];
+  roadmap: RoadmapStep[] = [
+    { step: '01', title: 'Audit', desc: 'Deep-dive into funnel health, positioning, channel performance, and competitive whitespace.' },
+    { step: '02', title: 'Strategy', desc: 'Prioritized growth roadmap with messaging architecture, offer strategy, and measurable KPIs.' },
+    { step: '03', title: 'Execution', desc: 'Rapid launch across SEO, PPC, social, and content with iterative creative and channel optimization.' },
+    { step: '04', title: 'Optimization', desc: 'Continuous testing, attribution analysis, and scale decisions driven by revenue-focused reporting.' }
   ];
 
-  chips: string[] = [
-    'WEBSITE DEVELOPMENT',
-    'SOCIAL MEDIA MARKETING',
-    'EMAIL MARKETING',
-    'UI / UX',
-    'VIDEO EDITING',
-    'SEO',
-    'GOOGLE ADS',
-    'GRAPHIC DESIGN',
-    'BRAND IDENTITY'
-  ];
-
-  serviceLines: ServiceLineItem[] = [
-    { name: 'Web Design', status: 'Portfolio' },
-    { name: 'Design Strategy', status: 'Portfolio' },
-    { name: 'SEO Site', status: 'Portfolio' },
-    { name: 'Brand Assets', status: 'Portfolio' },
-    { name: 'Lead Generation', status: 'Portfolio' },
-    { name: 'Video Editing', status: 'Portfolio' }
-  ];
-
-  processSteps = [
-    { title: 'From Consultation', desc: 'We audit your current brand setup and map where conversions are leaking.' },
-    { title: 'Discover Your Needs', desc: 'We align strategy, offer, and channels with your business goals.' },
-    { title: 'Plan & Execute', desc: 'Our team launches creative, ads, and funnels in one focused sprint.' },
-    { title: 'Launch & Scale', desc: 'We optimize on data and scale what performs across every touchpoint.' }
-  ];
-
-  reviewsOrbit: ServiceCardItem[] = [
-    { title: 'Great Team', desc: 'Fast results' },
-    { title: 'Clear Strategy', desc: 'Easy process' },
-    { title: 'Creative Ads', desc: 'High quality' },
-    { title: 'Amazing Support', desc: 'Always available' },
-    { title: 'Lead Quality', desc: 'Very strong' },
-    { title: 'Real Growth', desc: 'Measurable ROI' }
-  ];
-
-  testimonialBubbles: TestimonialBubble[] = [
-    { quote: 'The results are outstanding!', name: 'Gracie Abrams', className: 'b1' },
-    { quote: 'Nice work, love it!🔥', name: 'Byeon Wo Soek', className: 'b2' },
-    { quote: 'Nice work, love it!🔥', name: 'Byeon Wo Soek', className: 'b3' },
-    { quote: 'Highly Recommended!', name: 'Carlos Sainz', className: 'b4' },
-    { quote: 'That was amazing! Great job!', name: 'Louis Patridge', className: 'b5' }
-  ];
-
-  faqs = [
-    'What Services Does Your Agency Offer?',
-    'How Do You Ensure The Quality Of Your Work?',
-    'How Do You Handle Revisions Or Changes?',
-    'What If I\'m Not Satisfied With The Final Result?'
-  ];
+  constructor(private route: ActivatedRoute) {
+    this.route.queryParamMap.subscribe((params) => {
+      const service = (params.get('service') || '').toLowerCase();
+      this.selectedService = this.mapServiceParamToCoreKey(service);
+    });
+  }
 
   ngAfterViewInit(): void {
-    gsap.fromTo(
-      '.services-hero-content > *',
-      { opacity: 0, y: 40 },
-      { opacity: 1, y: 0, duration: 0.8, stagger: 0.12, delay: 0.2 }
-    );
+    gsap.fromTo('.hero-panel, .hero-copy > *', { y: 28, opacity: 0 }, { y: 0, opacity: 1, duration: 0.8, stagger: 0.08 });
 
-    gsap.fromTo(
-      '.service-detail-card',
-      { opacity: 0, y: 40 },
-      {
-        opacity: 1,
+    gsap.utils.toArray('.core-card').forEach((card) => {
+      gsap.fromTo(card as Element, { y: 36, opacity: 0 }, {
         y: 0,
+        opacity: 1,
         duration: 0.6,
-        stagger: 0.1,
-        scrollTrigger: { trigger: '.line-list', start: 'top 82%' }
-      }
-    );
+        scrollTrigger: { trigger: card as Element, start: 'top 85%' }
+      });
+    });
+
+    gsap.utils.toArray('.roadmap-step').forEach((step) => {
+      gsap.fromTo(step as Element, { x: 24, opacity: 0 }, {
+        x: 0,
+        opacity: 1,
+        duration: 0.5,
+        scrollTrigger: { trigger: step as Element, start: 'top 82%' }
+      });
+    });
+  }
+
+  ngOnDestroy(): void {
+    ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+  }
+
+  isCoreServiceHighlighted(key: string): boolean {
+    return this.selectedService === key;
+  }
+
+  private mapServiceParamToCoreKey(value: string): string {
+    if (value.includes('seo')) return 'seo';
+    if (value.includes('social') || value.includes('smm')) return 'smm';
+    if (value.includes('ppc') || value.includes('ads') || value.includes('digital-marketing')) return 'ppc';
+    if (value.includes('content') || value.includes('brand') || value.includes('graphic')) return 'content';
+    return '';
   }
 }

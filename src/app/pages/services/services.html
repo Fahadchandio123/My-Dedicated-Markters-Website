@@ -1,456 +1,159 @@
-<section class="services-page">
-    <section class="services-hero section">
-        <div class="hero-glow"></div>
-        <img class="hero-swoosh" src="assets/13.png" alt="" aria-hidden="true" />
-
-        <div class="container services-hero-content">
-            <span class="section-tag">Our Services</span>
-            <h1 class="services-title">SERVICES</h1>
-            <div class="hero-subtitle-card">
-                <p class="hero-subtitle">Explore our range of tailored solutions designed to elevate your business to
-                    new heights.</p>
-            </div>
-
-            <article class="hero-service-card service-detail-card">
-                <img src="assets/astronaut.png" alt="Astronaut" class="hero-service-image" />
-                <div class="hero-service-copy">
-                    <div class="hero-vector" aria-hidden="true"></div>
-                    <h2>Empower Your Business with Comprehensive Solutions</h2>
-                    <p>
-                        We offer customized digital marketing solutions to strengthen your brand and accelerate growth
-                        from visibility to conversion.
-                    </p>
-                    <ul>
-                        @for (feature of heroFeatures; track feature) {
-                        <li>• {{ feature }}</li>
-                        }
-                    </ul>
-                    <a class="cta-chip" routerLink="/contact">A GLIMPSE INTO MY DEDICATED MARKETERS <span>↗</span></a>
-
-                    <aside class="hero-service-mini-card" aria-label="Service categories">
-                        <ul>
-                            <li><span class="mini-dot"></span>Brand Identity</li>
-                            <li><span class="mini-dot"></span>Graphic Designing</li>
-                            <li><span class="mini-dot"></span>Video Editing</li>
-                            <li><span class="mini-dot"></span>Digital Marketing</li>
-                            <li><span class="mini-dot"></span>UI &amp; UX</li>
-                            <li><span class="mini-dot"></span>Web Development</li>
-                            <li><span class="mini-dot"></span>App Development</li>
-                        </ul>
-                    </aside>
-                </div>
-            </article>
+<section class="services-redesign">
+  <section class="hero section">
+    <div class="hero-bg-glow"></div>
+    <div class="container hero-layout">
+      <div class="hero-copy">
+        <span class="eyebrow">MDM Services</span>
+        <h1>Your All-in-One Marketing Department, <span>Reimagined.</span></h1>
+        <p>
+          Scale faster with a dedicated growth team across SEO, paid media, social, and content—without the overhead of
+          building an in-house department from scratch.
+        </p>
+        <div class="hero-actions">
+          <a routerLink="/contact" class="btn-primary">Start Your Growth</a>
+          <a routerLink="/portfolio" class="btn-ghost">See Client Results</a>
         </div>
-    </section>
-
-    <section class="chip-section section">
-        <div class="container chip-inner">
-
-            <div class="chip-expertise">
-                <ul>
-                    @for (point of expertisePoints; track point) {
-                    <li>{{ point }}</li>
-                    }
-                </ul>
-            </div>
-
-            <span class="section-tag what-offer">What We Offer</span>
-            <h2 class="section-title">Elevate Your <span>Business</span> with Our Expert Digital Marketing Solutions
-            </h2>
-
-            <div class="chip-badge">Business</div>
-            <div class="chip-vector" aria-hidden="true"></div>
-
-            <div class="chips-card card">
-                <p>I transform ideas into compelling visuals that leave a lasting impact. From bold graphic designs to
-                    intricate 3D modeling, my work bridges creativity and functionality.</p>
-                <div class="chips-wrap">
-                    @for (chip of chips; track chip) {
-                    <span>{{ chip }}</span>
-                    }
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="expert-line section">
-        <div class="container">
-            <div class="expert-intro">
-                <div class="expert-business-badge">Business</div>
-                <h2 class="section-title">Empower Your <span>Business</span> with Our Expert Online Services</h2>
-                <p class="section-subtitle">From design and web/app development to digital marketing and social media
-                    management, we offer comprehensive solutions to help your business thrive online. Let our expertise
-                    guide you toward achieving your digital goals and expanding your brand’s reach.</p>
-            </div>
-
-            <article class="brand-card">
-                <div class="brand-card-tags">
-                    <span>Brand Identity</span>
-                    <span>Portfolio</span>
-                </div>
-
-                <div class="identity-badge">IDENTITY</div>
-                <span class="pixel-arrow" aria-hidden="true">↖</span>
-
-                <h3 class="brand-wordmark">BRANDING</h3>
-
-                <div class="brand-grid">
-                    <div class="brand-box large"></div>
-
-                    <div class="brand-copy top">
-                        <h4>Elevate Your Business with a Compelling Brand Identity</h4>
-                        <p>Your brand is more than a logo; it&#39;s the essence of your business. We help you craft a
-                            unique identity that resonates with your audience and sets you apart in the market.</p>
-                    </div>
-
-                    <div class="brand-copy bottom">
-                        <p>A strong brand identity is the foundation of successful businesses. It shapes how your
-                            audience perceives your company, creating lasting impressions and fostering loyalty. Our
-                            team works closely with you to design a cohesive brand strategy that speaks to your values
-                            and vision.</p>
-                        <a routerLink="/contact">See More <span class="see-more-line" aria-hidden="true"></span></a>
-                    </div>
-
-                    <div class="brand-box small"></div>
-                </div>
-            </article>
-
-            <article class="brand-card graphic-card">
-                <div class="brand-card-tags">
-                    <span>Graphic Designing</span>
-                    <span>Portfolio</span>
-                </div>
-
-                <div class="identity-badge designing-badge">DESIGNING</div>
-                <span class="pixel-arrow" aria-hidden="true">↖</span>
-
-                <h3 class="brand-wordmark">GRAPHIC</h3>
-
-                <div class="brand-grid">
-                    <div class="brand-box large"></div>
-
-                    <div class="brand-copy top">
-                        <h4>Elevate Your Business with a Compelling Brand Identity</h4>
-                        <p>Your brand is more than a logo; it&#39;s the essence of your business. We help you craft a
-                            unique identity that resonates with your audience and sets you apart in the market.</p>
-                    </div>
-
-                    <div class="brand-copy bottom">
-                        <p>A strong brand identity is the foundation of successful businesses. It shapes how your
-                            audience perceives your company, creating lasting impressions and fostering loyalty. Our
-                            team works closely with you to design a cohesive brand strategy that speaks to your values
-                            and vision.</p>
-                        <a routerLink="/contact">See More <span class="see-more-line" aria-hidden="true"></span></a>
-                    </div>
-
-                    <div class="brand-box small"></div>
-                </div>
-            </article>
-
-            <article class="brand-card video-card">
-                <div class="brand-card-tags">
-                    <span>Video &amp; VFX</span>
-                    <span>Portfolio</span>
-                </div>
-
-                <div class="identity-badge editing-badge">EDITING</div>
-                <span class="pixel-arrow" aria-hidden="true">↖</span>
-
-                <h3 class="brand-wordmark">VIDEO &amp; VFX</h3>
-
-                <div class="brand-grid">
-                    <div class="brand-box large"></div>
-
-                    <div class="brand-copy top">
-                        <h4>Elevate Your Business with a Compelling Video &amp; VFX Editing</h4>
-                        <p>Your brand is more than a logo; it&#39;s the essence of your business. We help you craft a
-                            unique identity that resonates with your audience and sets you apart in the market.</p>
-                    </div>
-
-                    <div class="brand-copy bottom">
-                        <p>A strong brand identity is the foundation of successful businesses. It shapes how your
-                            audience perceives your company, creating lasting impressions and fostering loyalty. Our
-                            team works closely with you to design a cohesive brand strategy that speaks to your values
-                            and vision.</p>
-                        <a routerLink="/contact">See More <span class="see-more-line" aria-hidden="true"></span></a>
-                    </div>
-
-                    <div class="brand-box small"></div>
-                </div>
-            </article>
-
-            <article class="brand-card digital-card">
-                <div class="brand-card-tags">
-                    <span>Digital Marketing</span>
-                    <span>Portfolio</span>
-                </div>
-
-                <span class="pixel-arrow" aria-hidden="true">↖</span>
-
-                <h3 class="brand-wordmark">DIGITAL</h3>
-
-                <div class="brand-grid">
-                    <div class="brand-box large"></div>
-
-                    <div class="brand-copy top">
-                        <h4>Elevate Your Business with a Compelling Brand Identity</h4>
-                        <p>Your brand is more than a logo; it&#39;s the essence of your business. We help you craft a
-                            unique identity that resonates with your audience and sets you apart in the market.</p>
-                    </div>
-
-                    <div class="brand-copy bottom">
-                        <p>A strong brand identity is the foundation of successful businesses. It shapes how your
-                            audience perceives your company, creating lasting impressions and fostering loyalty. Our
-                            team works closely with you to design a cohesive brand strategy that speaks to your values
-                            and vision.</p>
-                        <a routerLink="/contact">See More <span class="see-more-line" aria-hidden="true"></span></a>
-                    </div>
-
-                    <div class="brand-box small"></div>
-                </div>
-            </article>
-
-            <article class="brand-card uiux-card">
-                <div class="brand-card-tags">
-                    <span>UI &amp; UX Designing</span>
-                    <span>Portfolio</span>
-                </div>
-
-                <div class="identity-badge designing-badge">DESIGNING</div>
-                <span class="pixel-arrow" aria-hidden="true">↖</span>
-
-                <h3 class="brand-wordmark">UI &amp; UX</h3>
-
-                <div class="brand-grid">
-                    <div class="brand-box large"></div>
-
-                    <div class="brand-copy top">
-                        <h4>Elevate Your Business with a Compelling UI &amp; UX Designing</h4>
-                        <p>Your brand is more than a logo; it&#39;s the essence of your business. We help you craft a
-                            unique identity that resonates with your audience and sets you apart in the market.</p>
-                    </div>
-
-                    <div class="brand-copy bottom">
-                        <p>A strong brand identity is the foundation of successful businesses. It shapes how your
-                            audience perceives your company, creating lasting impressions and fostering loyalty. Our
-                            team works closely with you to design a cohesive brand strategy that speaks to your values
-                            and vision.</p>
-                        <a routerLink="/contact">See More <span class="see-more-line" aria-hidden="true"></span></a>
-                    </div>
-
-                    <div class="brand-box small"></div>
-                </div>
-            </article>
-
-            <article class="brand-card web-card">
-                <div class="brand-card-tags">
-                    <span>Web Development</span>
-                    <span>Portfolio</span>
-                </div>
-
-                <div class="identity-badge marketing-badge">MARKETING</div>
-                <span class="pixel-arrow" aria-hidden="true">↖</span>
-
-                <h3 class="brand-wordmark">WEB SITE</h3>
-
-                <div class="brand-grid">
-                    <div class="brand-box large"></div>
-
-                    <div class="brand-copy top">
-                        <h4>Elevate Your Business with a Compelling Brand Identity</h4>
-                        <p>Your brand is more than a logo; it&#39;s the essence of your business. We help you craft a
-                            unique identity that resonates with your audience and sets you apart in the market.</p>
-                    </div>
-
-                    <div class="brand-copy bottom">
-                        <p>A strong brand identity is the foundation of successful businesses. It shapes how your
-                            audience perceives your company, creating lasting impressions and fostering loyalty. Our
-                            team works closely with you to design a cohesive brand strategy that speaks to your values
-                            and vision.</p>
-                        <a routerLink="/contact">See More <span class="see-more-line" aria-hidden="true"></span></a>
-                    </div>
-
-                    <div class="brand-box small"></div>
-                </div>
-            </article>
-
-            <article class="brand-card app-card">
-                <div class="brand-card-tags">
-                    <span>App Development</span>
-                    <span>Portfolio</span>
-                </div>
-
-                <div class="identity-badge development-badge">DEVELOPMENT</div>
-                <span class="pixel-arrow" aria-hidden="true">↖</span>
-
-                <h3 class="brand-wordmark">APPLICATION</h3>
-
-                <div class="brand-grid">
-                    <div class="brand-box large"></div>
-
-                    <div class="brand-copy top">
-                        <h4>Elevate Your Business with a Compelling Brand Identity</h4>
-                        <p>Your brand is more than a logo; it&#39;s the essence of your business. We help you craft a
-                            unique identity that resonates with your audience and sets you apart in the market.</p>
-                    </div>
-
-                    <div class="brand-copy bottom">
-                        <p>A strong brand identity is the foundation of successful businesses. It shapes how your
-                            audience perceives your company, creating lasting impressions and fostering loyalty. Our
-                            team works closely with you to design a cohesive brand strategy that speaks to your values
-                            and vision.</p>
-                        <a routerLink="/contact">See More <span class="see-more-line" aria-hidden="true"></span></a>
-                    </div>
-
-                    <div class="brand-box small"></div>
-                </div>
-            </article>
-        </div>
-    </section>
-    <section class="process section">
-        <img class="process-swoosh" src="assets/13.png" alt="" aria-hidden="true" />
-        <div class="container">
-            <h2 class="section-title">Our Simple <span>Process</span> to Success</h2>
-
-            <div class="process-video"></div>
-
-            <div class="process-content">
-                <p class="process-intro">Need help understanding how we build predictable growth? Our process keeps
-                    strategy, execution, and scaling aligned.</p>
-
-                <div class="process-list">
-                    @for (step of processSteps; track step.title) {
-                    <article>
-                        <h4>{{ step.title }}</h4>
-                        <p>{{ step.desc }}</p>
-                    </article>
-                    }
-                </div>
-            </div>
-
-            <img class="process-astro" src="assets/astronaut-cta.png" alt="Astronaut" />
-
-            <div class="reviews-wrap">
-                <span class="section-tag testimonial-tag">Testimonial</span>
-                <h3 class="reviews-pill">Reviews</h3>
-
-                <div class="reviews-orbit card">
-                    <div class="orbit-ring outer"></div>
-                    <div class="orbit-ring inner"></div>
-
-                    <div class="orbit-center">
-                        <span>Client Feedback &amp;</span>
-                        <strong>Reviews</strong>
-                    </div>
-
-                    @for (bubble of testimonialBubbles; track bubble.name + bubble.className) {
-                    <article class="testimonial-bubble" [class]="'testimonial-bubble ' + bubble.className">
-                        <div class="bubble-avatar" aria-hidden="true"></div>
-                        <div>
-                            <h5>{{ bubble.quote }}</h5>
-                            <p>{{ bubble.name }}</p>
-                        </div>
-                    </article>
-                    }
-
-                    @for (review of reviewsOrbit; track review.title; let i = $index) {
-                    <div class="orbit-tag" [style.--i]="i">
-                        <h5>{{ review.title }}</h5>
-                        <p>{{ review.desc }}</p>
-                    </div>
-                    }
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="faq section">
-        <div class="container">
-            <span class="section-tag faq-tag">FAQ’s</span>
-            <h2 class="section-title">FREQUENTLY ASK <span>QUESTION</span></h2>
-
-            <div class="faq-list">
-                <article class="faq-item active">
-                    <div class="faq-texts">
-                        <h3>What services does your agency offer?</h3>
-                        <p>Our agency provides a range of services to meet your business needs, including custom
-                            software solutions, graphic design, web development, and digital marketing. We specialize in
-                            creating high-quality, user-friendly, and visually appealing products that enhance
-                            efficiency and drive growth.</p>
-                    </div>
-                    <span class="faq-icon minus" aria-hidden="true"></span>
-                    <span class="faq-glow" aria-hidden="true"></span>
-                </article>
-
-                @for (faq of faqs; track faq; let i = $index) {
-                @if (i > 0) {
-                <article class="faq-item">
-                    <h3>{{ faq }}</h3>
-                    <span class="faq-icon plus" aria-hidden="true"></span>
-                </article>
-                }
-                }
-            </div>
-        </div>
-    </section>
-    <section class="services-cta section">
-        <div class="container">
-            <div class="cta-panel">
-                <img class="cta-astro" src="assets/astronaut-cta.png" alt="Astronaut reaching out" />
-                <div class="cta-fade"></div>
-                <h2 class="cta-title">GOT A PROJECT<br />IN <span>MIND?</span></h2>
-
-                <div class="cta-strip"></div>
-
-                <div class="cta-contact-card">
-                    <h3>Let's Stay Connected</h3>
-                    <p>Consectetur nostra dapibus eu eleifend ipsum iaculis luctus dis ac turpis sociosqu risus integer
-                        pellentesque.</p>
-
-                    <form class="cta-form">
-                        <input type="email" placeholder="Type your E-mail here..." />
-                        <button type="button">Send</button>
-                    </form>
-                </div>
-
-                <div class="cta-social-row">
-                    <div class="social-item">
-                        <span class="social-line"></span>
-                        <span class="social-name">Instagram</span>
-                        <span class="social-icon">◉</span>
-                    </div>
-                    <div class="social-item">
-                        <span class="social-line"></span>
-                        <span class="social-name">Facebook</span>
-                        <span class="social-icon">◉</span>
-                    </div>
-                    <div class="social-item">
-                        <span class="social-line"></span>
-                        <span class="social-name">Linkedin</span>
-                        <span class="social-icon">◉</span>
-                    </div>
-                    <div class="social-item">
-                        <span class="social-line"></span>
-                        <span class="social-name">Pinterest</span>
-                        <span class="social-icon">◉</span>
-                    </div>
-                    <div class="social-item">
-                        <span class="social-line"></span>
-                        <span class="social-name">Twitter</span>
-                        <span class="social-icon">◉</span>
-                    </div>
-                </div>
-
-                <div class="cta-footer-links">
-                    <span>&#64;mydedicatedmarketers.com</span>
-                    <span>&#64;mydedicatedmarketers.com</span>
-                    <span>&#64;mydedicatedmarketers.com</span>
-                    <span>&#64;mydedicatedmarketers.com</span>
-                    <span>&#64;mydedicatedmarketers.com</span>
-                </div>
-
-                <p class="cta-copyright">© 2024 Your Brand. All rights reserved.</p>
-            </div>
-        </div>
-    </section>
+      </div>
+
+      <article class="hero-panel">
+
+
+        <img src="assets/astronaut.png" alt="3D astronaut visual" class="hero-visual" />
+        <div class="hero-badge">Integrated 360° Marketing Engine</div>
+        <ul>
+          <li>Strategy + Execution under one roof</li>
+          <li>Weekly sprint delivery with clear ownership</li>
+          <li>Revenue-focused reporting, not vanity metrics</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+  <section class="core-four section">
+    <div class="container">
+      <header class="section-head">
+        <span class="eyebrow">The Core Four</span>
+        <h2>Four Growth Engines. <span>One Unified Team.</span></h2>
+      </header>
+
+      <div class="bento-grid">
+        @for (service of coreFour; track service.key) {
+        <article class="core-card" [class.highlighted]="isCoreServiceHighlighted(service.key)">
+          <div class="card-top">
+            <span class="icon">
+              @switch (service.icon) {
+              @case ('search') {
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <circle cx="11" cy="11" r="7" />
+                <path d="M20 20l-4-4" />
+              </svg>
+              }
+              @case ('users') {
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <circle cx="9" cy="8" r="3" />
+                <circle cx="17" cy="9" r="2.5" />
+                <path d="M3 19c0-3.2 2.6-5 6-5s6 1.8 6 5" />
+                <path d="M14.5 18.6c.4-2 1.9-3.3 4.5-3.3 1 0 1.9.2 2.5.6" />
+              </svg>
+              }
+              @case ('target') {
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <circle cx="12" cy="12" r="8" />
+                <circle cx="12" cy="12" r="4" />
+                <circle cx="12" cy="12" r="1.5" />
+              </svg>
+              }
+              @default {
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M5 19h14" />
+                <path d="M7 16l3-9h4l3 9" />
+                <path d="M9.2 10.5h5.6" />
+              </svg>
+              }
+              }
+            </span>
+            <p class="metric">{{ service.metric }}</p>
+          </div>
+          <h3>{{ service.title }}</h3>
+          <h4>{{ service.subtitle }}</h4>
+          <p>{{ service.description }}</p>
+        </article>
+        }
+      </div>
+    </div>
+  </section>
+  <section class="dedicated section">
+    <div class="container">
+      <header class="section-head">
+        <span class="eyebrow">The Dedicated Advantage</span>
+        <h2>Not an Agency-on-Retainer. <span>An Extension of Your Team.</span></h2>
+      </header>
+
+      <div class="advantage-scroll">
+        @for (advantage of dedicatedAdvantages; track advantage.title; let i = $index) {
+        <article class="advantage-card">
+          <span class="step-chip">0{{ i + 1 }}</span>
+          <h3>{{ advantage.title }}</h3>
+          <p>{{ advantage.body }}</p>
+        </article>
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="roadmap section">
+    <div class="container roadmap-layout">
+      <div class="roadmap-copy">
+        <span class="eyebrow">Process Roadmap</span>
+        <h2>From Audit to Optimization, <span>Built for Momentum.</span></h2>
+        <p>Our progressive growth framework keeps strategy and execution synchronized, so every sprint has measurable
+          business impact.</p>
+      </div>
+
+      <div class="roadmap-steps">
+        <span class="progress-line" aria-hidden="true"></span>
+        @for (step of roadmap; track step.step) {
+        <article class="roadmap-step">
+          <span class="step-dot"></span>
+          <div class="step-body">
+            <p class="step-number">{{ step.step }}</p>
+            <h3>{{ step.title }}</h3>
+            <p>{{ step.desc }}</p>
+          </div>
+        </article>
+        }
+      </div>
+    </div>
+  </section>
+  <section class="conversion-footer section">
+    <div class="container conversion-layout">
+      <img src="assets/srv-hands-out-astro.png" alt="Astronaut decorative" class="conversion-astro" />
+
+      <div class="conversion-copy">
+        <span class="eyebrow">Ready to Scale?</span>
+        <h2>Let’s Build Your Next Growth Chapter.</h2>
+        <p>Tell us your goals, timeline, and channels. Our team will send a tailored plan in 24 hours.</p>
+      </div>
+
+      <form class="lead-form">
+        <label>
+          Name
+          <input type="text" placeholder="Your full name" />
+        </label>
+        <label>
+          Work Email
+          <input type="email" placeholder="you@company.com" />
+        </label>
+        <label>
+          What do you need help with?
+          <textarea rows="4" placeholder="SEO, Paid Ads, Social, Content, or full-funnel growth..."></textarea>
+        </label>
+        <button type="button">Get My Growth Plan</button>
+      </form>
+    </div>
+  </section>
+
+  <div class="sticky-growth-cta">
+    <p><strong>Start Your Growth</strong> with a dedicated MDM team this month.</p>
+    <a routerLink="/contact">Book a Strategy Call</a>
+  </div>
 </section>
